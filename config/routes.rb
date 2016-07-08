@@ -7,6 +7,12 @@ Rails.application.routes.draw do
 
   get '/about', to: 'pages#about'
 
+  get '/contacts', to: 'signups#new', as: "contacts"
+
+  get '/new', to: 'pages#new', as: "thanks"
+
+  resources :signups
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
