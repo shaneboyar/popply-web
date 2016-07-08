@@ -6,10 +6,14 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   get '/about', to: 'pages#about'
+  get '/new', to: 'pages#new', as: "thanks"
 
   get '/signup', to: 'users#new', as: "signup"
 
-  get '/new', to: 'pages#new', as: "thanks"
+  get '/login', to: 'sessions#new', as: 'login'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+
 
   resources :users
 
