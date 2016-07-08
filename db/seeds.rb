@@ -10,6 +10,7 @@
 	last_name = Faker::Name.last_name
 	email = Faker::Internet.free_email(first_name)
 	password = Faker::Internet.password
-	user = User.new(first_name: first_name, last_name: last_name, email: email, password: password)
+	image = Faker::Avatar.image
+	user = User.new(first_name: first_name, last_name: last_name, email: email, password: password, image_link: image)
 	user.save
 end
