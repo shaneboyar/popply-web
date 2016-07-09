@@ -4,9 +4,11 @@
       <%= image_tag(@user.image_link) %>
       <div class="caption">
         <h3><%= @user.first_name%> <%= @user.last_name %></h3>
+        <% if session[:user_id] == @user.id %>
         <p>
-          <a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a>
+          <%= link_to "Edit Profile", edit_user_path, class: :"btn btn-default", role: :"button" %>
         </p>
+        <% end %>
       </div>
     </div>
   </div>
