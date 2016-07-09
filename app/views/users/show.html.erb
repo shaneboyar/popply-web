@@ -14,7 +14,10 @@
   </div>
   <div class="col-sm-6 col-md-8">
     <% if session[:user_id] == @user.id %>
-      <%= link_to "New Post", '#', class: :"btn btn-success btn-block", role: :"button" %>
+      <%= link_to "New Post", new_post_path, class: :"btn btn-success btn-block", role: :"button", remote: :true, id: :"new-button" %>
+      <div id="new-post">
+        <!-- This is where the post input will appear -->
+      </div>
     <% end %>
     <% if @user.posts.any? %>
       <ol class="posts">
