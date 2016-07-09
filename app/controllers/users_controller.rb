@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	before_action :be_the_right_user, only: [:edit]
+	before_filter :be_the_right_user, only: [:edit]
 
 
 	def new
