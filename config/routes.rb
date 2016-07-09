@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
 
-  resources :users
+  resources :users, :posts
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -14,3 +14,9 @@
 	user = User.new(first_name: first_name, last_name: last_name, email: email, password: password, image_link: image)
 	user.save
 end
+
+users = User.order(:created_at).take(10)
+50.times do
+  content = Faker::Hipster.paragraphs(3)
+  users.each { |user| user.posts.create!(content: content) }
+end

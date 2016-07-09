@@ -22,10 +22,20 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
+		@posts = @user.posts.order(created_at: :desc).paginate(page: params[:page]).per_page(10)
 	end
 
 	def edit
     	@user = User.find(params[:id])
+  	end
+
+  	def update
+  		@user = User.find(params[:id])
+  		if @user.save
+  			redirect_to user_path
+  		else
+  			redirect_to edit_user_path
+  		end
   	end
 
 	private

@@ -12,4 +12,15 @@
       </div>
     </div>
   </div>
+  <div class="col-sm-6 col-md-8">
+    <% if session[:user_id] == @user.id %>
+      <%= link_to "New Post", '#', class: :"btn btn-success btn-block", role: :"button" %>
+    <% end %>
+    <% if @user.posts.any? %>
+      <ol class="posts">
+        <%= render @posts %>
+      </ol>
+      <%= will_paginate @posts %>
+    <% end %>
+  </div>
 </div>
