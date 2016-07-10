@@ -15,8 +15,16 @@
 	user.save
 end
 
+first_name = "Shane"
+last_name = "Boyar"
+email = "shane.boyar@gmail.com"
+password = "password"
+user = User.new(first_name: first_name, last_name: last_name, email: email, password: password)
+user.save
+
+
 5.times do
-	name = Faker::Space.nebula
+	name = Faker::StarWars.character + " League"
 	league = League.new(name: name)
 	league.save
 end
