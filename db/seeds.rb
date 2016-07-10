@@ -25,6 +25,8 @@ end
 	name = Faker::Name.name
 	image = Faker::Avatar.image
 	bio = Faker::Hipster.paragraph
-	contestant = Contestant.new(name: name, image: image, bio: bio)
+	age = Faker::Number.between(23, 35)
+	occupation = Faker::Company.profession
+	contestant = Contestant.new(name: name, image: image, bio: bio, age: age, occupation: occupation)
 	contestant.save
 end

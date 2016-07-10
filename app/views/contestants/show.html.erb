@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <%= image_tag(@contestant.image) %>
+    </div>
+  </div>
+  <div class="col-sm-6 col-md-8">
+    <h1><%= @contestant.name %></h1>
+    <p>Age: <%= @contestant.age %></p>
+    <p>Occupation: <%= @contestant.occupation %></p>
+    <p><%= @contestant.bio %></p>
+  </div>
+</div>
