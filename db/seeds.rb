@@ -15,6 +15,19 @@
 	user.save
 end
 
+5.times do
+	name = Faker::Space.nebula
+	league = League.new(name: name)
+	league.save
+end
+
+all_users = User.all
+all_users.each do |user|
+	leagueid = Faker::Number.between(1, 5)
+	league = League.find(leagueid)
+	league.users.push(user)
+end
+
 users = User.order(:created_at).take(10)
 50.times do
   content = Faker::Hipster.paragraphs(3)
