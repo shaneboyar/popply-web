@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   get '/home', to: 'pages#home'
   get '/about', to: 'pages#about'
-  get '/new', to: 'pages#new', as: "thanks"
+  get '/new', to: 'pages#new', as: "splash_page"
 
   get '/signup', to: 'users#new', as: "signup"
 

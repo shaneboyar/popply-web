@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+	skip_before_filter :require_user, only: [:new, :create]
 	before_filter :be_the_right_user, only: [:edit]
 
 
