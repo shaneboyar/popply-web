@@ -1,0 +1,19 @@
+<div class="jumbotron">
+	<h1>Log In</h1>
+	<%= form_for(:session, url: login_path) do |f| %>
+	<div class="form-group">
+		<%= f.label :email %>
+		<%= f.email_field :email, class: :"form-control" %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :password %>
+		<%= f.password_field :password, class: :"form-control" %><br />
+	</div>
+
+		<%= f.submit "Log In", class: :"btn" %>
+	<% end %>
+	<div>
+		<%= link_to "Want to join the club? Sign up here", signup_path, remote: :true %>
+	</div>
+</div>

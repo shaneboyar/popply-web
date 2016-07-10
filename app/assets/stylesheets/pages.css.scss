@@ -2,7 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.navbar {
+.splashpage {
+	background: url("http://i.imgur.com/xO7jRrJ.gif") no-repeat center center fixed;;
+    background-size: cover;
+}
+
+.splashpage .navbar {
 	display: none;
 }
 
@@ -16,10 +21,10 @@
 	font-weight: 100;
 }
 
-.footer-divider {
+.splashpage .footer-divider {
 	display: none;
 }
 
-footer {
+.splashpage footer {
 	display: none;
 }
