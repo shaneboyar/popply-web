@@ -20,3 +20,11 @@ users = User.order(:created_at).take(10)
   content = Faker::Hipster.paragraphs(3)
   users.each { |user| user.posts.create!(content: content) }
 end
+
+26.times do 
+	name = Faker::Name.name
+	image = Faker::Avatar.image
+	bio = Faker::Hipster.paragraph
+	contestant = Contestant.new(name: name, image: image, bio: bio)
+	contestant.save
+end

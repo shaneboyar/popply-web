@@ -1,0 +1,8 @@
+<div class="row">
+	<% @contestants.each do |contestant| %>
+		<div class="col-xs-6 col-md-3">
+			<%= link_to image_tag(contestant.image), contestant, class: :"thumbnail	" %>
+			<h4><%= contestant.name %></h4>
+		</div>
+	<% end %>
+</div>

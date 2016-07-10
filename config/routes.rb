@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'contestants/index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -15,7 +17,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
 
-  resources :users, :posts
+  resources :users, :posts, :contestants
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
