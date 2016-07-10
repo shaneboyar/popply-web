@@ -28,6 +28,12 @@ all_users.each do |user|
 	league.users.push(user)
 end
 
+all_players = LeagueUser.all
+all_players.each do |player|
+	player.score = Faker::Number.between(0, 500)
+	player.save
+end
+
 users = User.order(:created_at).take(10)
 50.times do
   content = Faker::Hipster.paragraphs(3)

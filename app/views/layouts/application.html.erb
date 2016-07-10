@@ -29,6 +29,7 @@
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav pull-right">
                 <li><%= link_to "Members", users_path %></li>
+                <li><%= link_to "Leagues", leagues_path %></li>
                   <% if current_user %>
                     <li><%= link_to "My Profile", user_path(session[:user_id]) %>
                     <li><%= link_to "Log Out", logout_path, method: "delete" %></li>
