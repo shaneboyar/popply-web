@@ -20,14 +20,20 @@
 
  body {
     padding-top: 70px;
-  }
+    background: url("http://i.imgur.com/xO7jRrJ.gif") no-repeat center center fixed;;
+    background-size: cover;
+}
+
 html, body {
 	margin:0
 }
 
 body {
 	font-family:'Roboto', sans-serif;
-	
+}
+
+.vertical-align {
+    margin-top:10%;
 }
 
 h2 {
