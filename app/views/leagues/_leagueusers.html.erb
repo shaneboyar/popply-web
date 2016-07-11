@@ -1,6 +1,0 @@
-<% @league.players.each do |leagueuser| %>
-	<div class="col-xs-6 col-md-3">
-		<%= link_to image_tag(leagueuser.image_link), leagueuser, class: :"thumbnail player-image" %>
-		<div class="caption small player-name"><%= leagueuser.first_name %></div>
-	</div>
-<% end %>

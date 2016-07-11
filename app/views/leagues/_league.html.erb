@@ -1,9 +1,0 @@
-<li id="league-<%= league.id %>">
-  <%= link_to league.name, league %>
-  <small class="timestamp">
-    Created <%= time_ago_in_words(league.created_at) %> ago. 
-    	<% if @current_user.id == league.owner.id %>
-    	<%= link_to "(Delete)", league, method: :delete, data: { confirm: "You sure?" }  %>
-    	<% end %>
-  </small>
-</li>

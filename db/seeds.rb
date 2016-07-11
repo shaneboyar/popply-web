@@ -23,28 +23,6 @@ user = User.new(first_name: first_name, last_name: last_name, email: email, pass
 user.save
 
 
-5.times do
-	name = Faker::StarWars.character + " League"
-	owner_id = Faker::Number.between(1, 11)
-	league = League.new(name: name, owner_id: owner_id)
-	league.save
-end
-
-
-all_users = User.all
-all_users.each do |user|
-	leagueid = Faker::Number.between(1, 5)
-	league = League.find(leagueid)
-	league.players.push(user)
-end
-
-
-all_players = LeagueUser.all
-all_players.each do |player|
-	player.score = Faker::Number.between(0, 500)
-	player.save
-end
-
 26.times do 
 	name = Faker::Name.name
 	image = Faker::Avatar.image

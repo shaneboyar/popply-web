@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'contestants/index'
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -13,12 +13,14 @@ Rails.application.routes.draw do
 
   get '/signup', to: 'users#new', as: "signup"
 
+  get 'contestants/index'
+
   get '/login', to: 'sessions#new', as: 'login'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
 
-  resources :users, :posts, :contestants, :leagues
+  resources :users, :contestants, :groups
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

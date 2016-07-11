@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     		session[:user_id] = @user.id 
     		redirect_to user_path(@user) 
   		else 
-    		redirect_to '/' 
+    		redirect_to user_path(@user) 
   		end 
 	end
 
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
-		@leagues = @user.leagues.order(created_at: :desc).paginate(page: params[:page]).per_page(10)
+		@groups = @user.groups.order(created_at: :desc).paginate(page: params[:page]).per_page(10)
 	end
 
 	def edit

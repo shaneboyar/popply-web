@@ -5,7 +5,8 @@ class CreateUsers < ActiveRecord::Migration
    	  t.string :last_name
    	  t.string :email
    	  t.string :password_digest
-   	  t.string :image_link, default:"http://i.imgur.com/Rt36YI5.jpg"
+      t.string :image_link, default:"http://i.imgur.com/Rt36YI5.jpg"
+   	  
 
       t.timestamps null: false
     end

@@ -1,6 +1,0 @@
-<% @league.players.each do |leagueuser| %>
-	<% player = LeagueUser.find(leagueuser.id) %>
-	<li>
-		<%= leagueuser.first_name %>: <%= player.score %>
-	</li>
-<% end %>
