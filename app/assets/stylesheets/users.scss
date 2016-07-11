@@ -2,3 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.leagues {
+  list-style: none;
+  padding: 10px 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+  .timestamp {
+    color: gray;
+  }
+}
+
+#new-league {
+	margin-top: 10px;
+}

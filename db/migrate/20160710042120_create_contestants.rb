@@ -4,6 +4,8 @@ class CreateContestants < ActiveRecord::Migration
       t.string :name
       t.string :image
       t.text :bio
+      t.integer :age
+      t.string :occupation
 
       t.timestamps null: false
     end

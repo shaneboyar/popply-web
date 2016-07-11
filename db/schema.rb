@@ -17,10 +17,10 @@ ActiveRecord::Schema.define(version: 20160710173433) do
     t.string   "name"
     t.string   "image"
     t.text     "bio"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.integer  "age"
     t.string   "occupation"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "league_users", force: :cascade do |t|
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20160710173433) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "score"
+    t.integer  "score", default: 0
   end
 
   add_index "league_users", ["league_id"], name: "index_league_users_on_league_id"
@@ -36,27 +36,19 @@ ActiveRecord::Schema.define(version: 20160710173433) do
 
   create_table "leagues", force: :cascade do |t|
     t.string   "name"
+    t.integer  "owner_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  create_table "posts", force: :cascade do |t|
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.text     "content"
-  end
-
-  add_index "posts", ["user_id"], name: "index_posts_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",                                                 null: false
-    t.datetime "updated_at",                                                 null: false
-    t.string   "image_link",      default: "http://i.imgur.com/Rt36YI5.jpg"
+    t.string   "image_link", default: "http://i.imgur.com/Rt36YI5.jpg"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

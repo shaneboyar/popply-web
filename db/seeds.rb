@@ -25,7 +25,8 @@ user.save
 
 5.times do
 	name = Faker::StarWars.character + " League"
-	league = League.new(name: name)
+	owner_id = Faker::Number.between(1, 11)
+	league = League.new(name: name, owner_id: owner_id)
 	league.save
 end
 
@@ -34,7 +35,7 @@ all_users = User.all
 all_users.each do |user|
 	leagueid = Faker::Number.between(1, 5)
 	league = League.find(leagueid)
-	league.users.push(user)
+	league.players.push(user)
 end
 
 
