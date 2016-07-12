@@ -8,12 +8,21 @@ class GroupsController < ApplicationController
 	end
 
 	def create
-		@group = @current_user.groups.create(group_params)
-		if @group.save  
-    		redirect_to user_path(@current_user) 
-  		else 
-    		redirect_to '/' 
-  		end 
+	  # hack to force the user to be both an owner, and have a membership
+	  # TODO: model owner on the membership model
+	  puts "CURRENT USER:", @current_user.id
+	  custom_params = { owner_id: @current_user.id }
+	  group_params_with_owner = group_params.merge(custom_params)
+	  puts "********\n********\n********\n********\n********\n********\n"
+	  puts group_params_with_owner.inspect
+	  @group = @current_user.groups.create(group_params_with_owner)
+	  if @group.save  
+	      puts "********\n********\nAND AFTER:"
+	      puts @group.inspect
+	      redirect_to user_path(@current_user) 
+	    else 
+	      redirect_to '/' 
+	    end 
 	end
 
 	def destroy
@@ -26,7 +35,7 @@ class GroupsController < ApplicationController
 	private
 
 	def group_params
-		params.require(:group).permit(:title, :owner_id)
+		params.require(:group).permit(:title)
 	end
 
 end
