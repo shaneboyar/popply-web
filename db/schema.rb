@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160711170712) do
+ActiveRecord::Schema.define(version: 20160712110643) do
 
   create_table "contestants", force: :cascade do |t|
     t.string   "name"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20160711170712) do
   create_table "groups", force: :cascade do |t|
     t.integer  "owner_id"
     t.string   "title"
+    t.integer  "show_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -33,6 +34,13 @@ ActiveRecord::Schema.define(version: 20160711170712) do
   create_table "memberships", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "shows", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "start"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

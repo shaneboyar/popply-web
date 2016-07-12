@@ -22,12 +22,18 @@ password = "password"
 user = User.new(first_name: first_name, last_name: last_name, email: email, password: password)
 user.save
 
+title = "The Bachelor"
+start = Faker::Time.forward(23, :morning)
+show = Show.new(title: title, start: start)
+show.save
+
 
 3.times do 
 	user_id = Faker::Number.between(1, 10)
 	user = User.find(user_id)
 	title = Faker::Superhero.name + " League"
-	params = { owner_id: user_id, title: title }
+	show = Show.find(1)
+	params = { owner_id: user.id, title: title, show_id: show.id}
 	user.groups.create(params)
 end
 

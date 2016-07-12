@@ -3,6 +3,7 @@ class CreateGroups < ActiveRecord::Migration
     create_table :groups do |t|
     	t.references :owner
     	t.string :title
+    	t.references :show
 
       t.timestamps null: false
     end
