@@ -1,5 +1,5 @@
 <li id="group-<%= group.id %>">
-	<span class="group_title"><%= group.title %></span>
+	<%= link_to group.title, group, class: :"group_title" %>
 	<small class="timestamp"> – Created <%= time_ago_in_words(group.created_at) %> ago.
 		<% if session[:user_id] == group.owner_id %>
 			<%= link_to "(delete)", group, method: :delete, data: { confirm: "You sure?" } %>

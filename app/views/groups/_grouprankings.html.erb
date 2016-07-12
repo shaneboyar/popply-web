@@ -1,0 +1,8 @@
+<ol>
+	<% @group.members.each do |member| %>
+		<% player = Membership.find_by_user_id(member.id) %>
+		<li>
+			<%= member.first_name %>: **Score Goes Here**
+		</li>
+	<% end %>
+</ol>

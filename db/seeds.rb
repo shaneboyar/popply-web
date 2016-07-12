@@ -23,6 +23,30 @@ user = User.new(first_name: first_name, last_name: last_name, email: email, pass
 user.save
 
 
+3.times do 
+	user_id = Faker::Number.between(1, 10)
+	user = User.find(user_id)
+	title = Faker::Superhero.name + " League"
+	params = { owner_id: user_id, title: title }
+	user.groups.create(params)
+end
+
+users = User.all
+groups = Group.all
+owners = []
+groups.each do |group|
+	owner = User.find(group.owner_id)
+	owners.push(owner)
+end
+
+non_owners = users - owners
+non_owners.each do |user|
+	group_id = Faker::Number.between(1, 3)
+	group = Group.find(group_id)
+	group.members.push(user)
+end
+
+
 26.times do 
 	name = Faker::Name.name
 	image = Faker::Avatar.image
