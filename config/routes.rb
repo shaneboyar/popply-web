@@ -19,8 +19,11 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  get 'group/rankings/:id', to: 'groups#grouprankings', as: 'rankings'
-  get 'group/picks/:id', to: 'groups#picks', as: 'picks'
+  get 'groups/:id/group-rankings', to: 'groups#grouprankings', as: 'group_rankings'
+  get 'groups/:id/group-picks', to: 'groups#picks', as: 'group_picks'
+
+  get 'groups/:id/picks', to: 'picks#new', as: 'new_picks'
+  post 'groups/:id/picks', to: 'picks#create'
 
 
   resources :users, :contestants, :groups

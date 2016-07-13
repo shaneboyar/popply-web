@@ -58,7 +58,8 @@ end
 	image = Faker::Avatar.image
 	bio = Faker::Hipster.paragraph
 	age = Faker::Number.between(23, 35)
+	show = Show.find(1)
 	occupation = Faker::Company.profession
-	contestant = Contestant.new(name: name, image: image, bio: bio, age: age, occupation: occupation)
+	contestant = Contestant.new(name: name, image: image, bio: bio, age: age, occupation: occupation, show_id: show.id)
 	contestant.save
 end
