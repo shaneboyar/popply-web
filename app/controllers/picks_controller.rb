@@ -7,12 +7,13 @@ class PicksController < ApplicationController
 
 	def create
 		@group = Group.find(params[:id])
-		puts "\n\n\n#{@group.memberships.find_by(user: @current_user).picks}\n\n\n\n\n\n\n\n"
-		@new_pick = @group.memberships.find_by(user: @current_user).picks.create(pick_params)
+		params["pick"]["contestant_id"][0..-2].each do |contestant_id|
+			@new_pick = @group.memberships.find_by(user: @current_user).picks.create(contestant_id: contestant_id, week: params["pick"]["week"])
+		end
 		if @group.save  
-		  redirect_to user_path(@current_user) 
+		  redirect_to group_path(@group)  
 		else 
-		  redirect_to '/' 
+		  redirect_to group_path(@group) 
 		end
 	end
 

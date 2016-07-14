@@ -1,9 +1,18 @@
 <% if @picks.any? %>
-	<% @picks.each do |pick| %>
-		<% @contestant = Contestant.find(pick.contestant_id) %>
-		<div class="col-xs-3 col-md-3">
-			<%= link_to image_tag(@contestant.image), @contestant, class: :"thumbnail player-image" %>
-			<div class="caption small player-name"><%= @contestant.name %></div>
+	<%= link_to "Make More Picks", new_picks_path, class: :"btn btn-default btn-block" %>
+	<% (1..10).each do |n| %>
+		<% weekpicks = @group.memberships.find_by(user: @current_user).picks.where(week: n) %>
+		<div class="row">
+		<h4>Week <%= n %></h4>
+			<%if weekpicks.any? %>
+				<% weekpicks.each do |pick| %>
+					<% @contestant = Contestant.find(pick.contestant_id) %>
+					<div class="col-xs-3 col-md-3">
+						<%= link_to image_tag(@contestant.image), @contestant, class: :"thumbnail player-image" %>
+						<div class="caption small player-name"><%= @contestant.name %></div>
+					</div>
+				<% end %>
+			<% end %>
 		</div>
 	<% end %>
 <% else %>

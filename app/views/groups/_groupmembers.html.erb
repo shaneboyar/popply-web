@@ -1,5 +1,5 @@
 <% @group.members.each do |member| %>
-	<div class="col-xs-6 col-md-3">
+	<div class="col-xs-3 col-md-3">
 		<%= link_to image_tag(member.image_link), member, class: :"thumbnail player-image" %>
 		<div class="caption small player-name"><%= member.first_name %></div>
 	</div>

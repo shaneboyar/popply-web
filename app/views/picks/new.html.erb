@@ -1,10 +1,19 @@
-<%= form_tag new_picks_path, method: "post" %>
-<div class="form-group">
-	<small>week:</small>
-	<%= number_field_tag :week, class: :"form-control" %>
-</div>
-<div class="form-group">
-	<small>contestant id:</small>
-	<%= number_field_tag :contestant_id, class: :"form-control" %>
-</div>
-<%= submit_tag "Create Group", class: :"btn btn-default" %>
+
+<%= form_for @new_pick, url: new_picks_path, method: "post" do |f| %>
+	<%= f.label :"Week 1" %>
+	<div class="row">
+		<%= f.collection_check_boxes :contestant_id, Contestant.all, :id, :name do |b| %>
+			<div class="col-md-2">
+					<%= b.check_box%><br />
+					<%= b.label %>
+			</div>
+		<%= f.hidden_field :week, value: 1 %>
+		<% end %>
+	</div>
+	<div class="row">
+	<%= f.submit "Submit", class: :"btn btn-default" %>
+<% end %>
+
+
+
+
