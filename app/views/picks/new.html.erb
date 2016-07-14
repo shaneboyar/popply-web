@@ -1,19 +1,49 @@
-
 <%= form_for @new_pick, url: new_picks_path, method: "post" do |f| %>
-	<%= f.label :"Week 1" %>
-	<div class="row">
-		<%= f.collection_check_boxes :contestant_id, Contestant.all, :id, :name do |b| %>
+	<h2>Week <%=@week.id %>: Pick <%=@week.picklimit %> </h2>
+	<div class="row" id="limit_checkbox">
+		<% if @week.id != 1 %>
+			<% last_week_id = @week.id - 1 %>
+			<% last_week = ShowWeek.find(last_week_id) %>
+			<% last_week_picks = @group.memberships.find_by(user: @current_user).picks.where(week: last_week) %>
+			<% contestants = [] %>
+			<% last_week_picks.each do |pick| %>
+			<% contestant = Contestant.find(pick.contestant_id) %>
+			<% contestants.push(contestant) %>
+			<% end %>
+		<% else %>
+			<% contestants = Contestant.all %>
+		<% end %>
+		<%= f.collection_check_boxes :contestant_id, contestants, :id, :name do |b| %>
 			<div class="col-md-2">
-					<%= b.check_box%><br />
+					<% if 1 == 2 %> 
+						<!-- TODO: Bring up current picks, if any -->
+						<%= b.check_box(checked: true)%><br />
+					<% else %>
+						<%= b.check_box(checked: false)%><br />
+					<% end %>
 					<%= b.label %>
 			</div>
-		<%= f.hidden_field :week, value: 1 %>
+		<%= f.hidden_field :week, value: @week.id %>
 		<% end %>
 	</div>
 	<div class="row">
-	<%= f.submit "Submit", class: :"btn btn-default" %>
+	<%= f.submit "Submit", class: :"btn btn-default", id: :"submit-button", disabled: true %>
 <% end %>
 
+
+<script>
+var $checkboxes_to_limit = $("#limit_checkbox").find("input:checkbox");
+$checkboxes_to_limit.on("change", function() {
+    if($checkboxes_to_limit.filter(":checked").length >= <%= @week.picklimit %>) {
+        $checkboxes_to_limit.not(":checked").attr("disabled","disabled");
+        $("input:submit").removeAttr("disabled");
+    }
+    else {
+        $checkboxes_to_limit.removeAttr("disabled");
+        $("input:submit").attr("disabled","disabled");
+    }
+});
+</script>
 
 
 

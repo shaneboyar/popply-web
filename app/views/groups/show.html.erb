@@ -9,17 +9,15 @@
 		<% unless @group.members.include? @current_user %>
 			<%= button_to "Join Group", @group, method: :patch %>
 		<% end %>
-		<div>
-			<ul class="nav nav-tabs group-tabs">
-			  <li role="presentation" class="active" id="rankings"><%= link_to "Rankings", group_rankings_path(@group), remote: :true %></li>
-			  <% if @group.members.include? @current_user %>
-			  	<li role="presentation" id="picks"><%= link_to "My Picks", group_picks_path(@group), remote: :true %></li>
-			  	<li role="presentation" id="chat"><%= link_to "Chat", '/#', remote: :true %></li>
-			  <% end %>
-			</ul>
-			<div class="group-details">
-				<%= render 'grouprankings' %>
-			</div>
-		<div>
+		<ul class="nav nav-tabs group-tabs">
+		  <li role="presentation" class="active" id="rankings"><%= link_to "Rankings", group_rankings_path(@group), remote: :true %></li>
+		  <% if @group.members.include? @current_user %>
+		  	<li role="presentation" id="picks"><%= link_to "My Picks", group_picks_path(@group), remote: :true %></li>
+		  	<li role="presentation" id="chat"><%= link_to "Chat", '/#', remote: :true %></li>
+		  <% end %>
+		</ul>
+		<div class="group-details col-12">
+			<%= render 'grouprankings' %>
+		</div>
 	</div>
 </div>

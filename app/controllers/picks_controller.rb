@@ -2,6 +2,7 @@ class PicksController < ApplicationController
 
 	def new
 		@group = Group.find(params[:id])
+		@week = ShowWeek.find(params[:week_id])
 		@new_pick = @group.memberships.find_by(user_id: @current_user.id).picks.build
 	end
 

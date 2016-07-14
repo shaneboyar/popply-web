@@ -15,6 +15,6 @@
 
 class Contestant < ActiveRecord::Base
 	belongs_to :show
-	has_many :picks
+	has_many :picks, dependent: :destroy
 	has_many :memberships, through: :picks
 end

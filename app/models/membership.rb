@@ -12,6 +12,6 @@
 class Membership < ActiveRecord::Base
 	belongs_to :group
 	belongs_to :user
-	has_many :picks
+	has_many :picks, dependent: :destroy
 	has_many :contestants, through: :picks
 end

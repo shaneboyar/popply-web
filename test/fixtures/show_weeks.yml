@@ -1,0 +1,18 @@
+# == Schema Information
+#
+# Table name: show_weeks
+#
+#  id         :integer          not null, primary key
+#  show_id    :integer
+#  picklimit  :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  show_id: 
+
+two:
+  show_id: 

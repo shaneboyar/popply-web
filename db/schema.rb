@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160712200447) do
+ActiveRecord::Schema.define(version: 20160714231536) do
+
+  create_table "contestant_picks", force: :cascade do |t|
+    t.integer  "pick_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "contestant_picks", ["pick_id"], name: "index_contestant_picks_on_pick_id"
 
   create_table "contestants", force: :cascade do |t|
     t.string   "name"
@@ -51,6 +59,15 @@ ActiveRecord::Schema.define(version: 20160712200447) do
 
   add_index "picks", ["contestant_id"], name: "index_picks_on_contestant_id"
   add_index "picks", ["membership_id"], name: "index_picks_on_membership_id"
+
+  create_table "show_weeks", force: :cascade do |t|
+    t.integer  "show_id"
+    t.integer  "picklimit"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "show_weeks", ["show_id"], name: "index_show_weeks_on_show_id"
 
   create_table "shows", force: :cascade do |t|
     t.string   "title"

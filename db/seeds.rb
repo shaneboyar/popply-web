@@ -27,6 +27,13 @@ start = Faker::Time.forward(23, :morning)
 show = Show.new(title: title, start: start)
 show.save
 
+show = Show.find(1)
+10.downto(1) do |n|
+show.show_weeks.create(picklimit: n)
+end
+
+
+
 
 3.times do 
 	user_id = Faker::Number.between(1, 10)

@@ -1,15 +1,14 @@
 # == Schema Information
 #
-# Table name: shows
+# Table name: show_weeks
 #
 #  id         :integer          not null, primary key
-#  title      :string
-#  start      :datetime
+#  show_id    :integer
+#  picklimit  :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-class Show < ActiveRecord::Base
-	has_many :contestants
-	has_many :show_weeks, dependent: :destroy
+class ShowWeek < ActiveRecord::Base
+  belongs_to :show
 end
