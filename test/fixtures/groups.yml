@@ -16,8 +16,12 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+group_1:
+ owner: shane
+ title: <%= Faker::Superhero.name + " League" %>
+ show_id: 1
+
+group_2:
+ owner: chris
+ title: <%= Faker::Superhero.name + " League" %>
+ show_id: 1

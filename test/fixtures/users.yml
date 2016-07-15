@@ -18,8 +18,21 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+shane: 
+ first_name: Shane
+ last_name: Boyar
+ email: shane.boyar@gmail.com
+ password_digest: password
+
+chris:
+ first_name: Dick
+ last_name: Butt
+ email: dick.butt@email.com
+ password_digest: password
+
+<% 30.times do |n| %>
+user_<%= n %>:
+ first_name: <%= Faker::Name.first_name %>
+ last_name: <%= Faker::Name.last_name %>
+ password_digest: password
+<% end %>

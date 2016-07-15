@@ -11,8 +11,8 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  show_id: 
-
-two:
-  show_id: 
+<% 10.times do |n| %>
+week_<%= n %>:
+ show: bachelor
+ picklimit: 11 - <%= n %>
+<% end %>
