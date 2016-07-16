@@ -10,7 +10,7 @@
 				</div>
 			<% end %>
 		<% else %>
-			<%= link_to "Make Picks", new_picks_path(week_id: week.id) %>
+			<%= link_to "Make Picks", new_picks_path(week_id: week.id), class:"btn btn-default"  %>
 		<% end %>
 	</div>
 <% end %>

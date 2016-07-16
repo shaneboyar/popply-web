@@ -49,6 +49,7 @@ class GroupsController < ApplicationController
 	end
 
 	def grouprankings
+		@key = @group.show.keys
   		respond_to do |format|               
 			format.js
 		end

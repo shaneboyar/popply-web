@@ -3,6 +3,7 @@ class CreateMemberships < ActiveRecord::Migration
     create_table :memberships do |t|
 		t.references :user
 		t.references :group
+		t.integer :score, default: 0
 
       t.timestamps null: false
     end

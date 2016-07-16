@@ -27,13 +27,29 @@ start = Faker::Time.forward(23, :morning)
 show = Show.new(title: title, start: start)
 show.save
 
+26.times do 
+	name = Faker::Name.name
+	image = Faker::Avatar.image
+	bio = Faker::Hipster.paragraph
+	age = Faker::Number.between(23, 35)
+	show = Show.find(1)
+	occupation = Faker::Company.profession
+	contestant = Contestant.new(name: name, image: image, bio: bio, age: age, occupation: occupation, show_id: show.id)
+	contestant.save
+end
+
 show = Show.find(1)
+
 10.downto(1) do |n|
 show.show_weeks.create(picklimit: n)
 end
 
-
-
+10.times do |n|
+	(n+1).times do |x|
+		contestant = Contestant.find(x+1)
+		show.keys.create(contestant: contestant, week: 10-n)
+	end
+end
 
 3.times do 
 	user_id = Faker::Number.between(1, 10)
@@ -57,16 +73,4 @@ non_owners.each do |user|
 	group_id = Faker::Number.between(1, 3)
 	group = Group.find(group_id)
 	group.members.push(user)
-end
-
-
-26.times do 
-	name = Faker::Name.name
-	image = Faker::Avatar.image
-	bio = Faker::Hipster.paragraph
-	age = Faker::Number.between(23, 35)
-	show = Show.find(1)
-	occupation = Faker::Company.profession
-	contestant = Contestant.new(name: name, image: image, bio: bio, age: age, occupation: occupation, show_id: show.id)
-	contestant.save
 end

@@ -29,7 +29,6 @@ group :test do
   gem 'minitest-reporters'
   gem 'mini_backtrace'
   gem 'guard-minitest'
-  gem 'capybara'
 end
 
 group :production do
