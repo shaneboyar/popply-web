@@ -5,8 +5,16 @@
 			<% @group.memberships.find_by(user: @current_user).picks.where(week: week).each do |pick| %>
 				<% @contestant = Contestant.find(pick.contestant_id) %>
 				<div class="col-xs-3 col-md-3">
-					<%= link_to image_tag(@contestant.image), @contestant, class: :"thumbnail player-image" %>
-				<div class="caption small player-name"><%= @contestant.name %></div>
+					<% if Key.where(show: @group.show).where(week: week.id).any? %>
+						<% if Key.where(show: @group.show).where(week: week.id).where(contestant: @contestant).any? %>
+							<%= link_to image_tag(@contestant.image), @contestant, class: :"thumbnail contestant-image" %>
+						<% else %>
+							<%= link_to image_tag(@contestant.image), @contestant, class: :"thumbnail contestant-image eliminated" %>
+						<% end %>
+					<% else %>
+						<%= link_to image_tag(@contestant.image), @contestant, class: :"thumbnail contestant-image" %>
+					<% end %>
+				<div class="caption small contestant-name"><%= @contestant.name %></div>
 				</div>
 			<% end %>
 		<% else %>

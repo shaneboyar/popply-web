@@ -15,12 +15,25 @@
 	padding-bottom: 10px;
 }
 
+.player-image {
+	margin-bottom: 0 !important;
+}
+
 .player-name {
 	margin-bottom: 5px;
 }
 
-.player-image {
+
+.contestant-name {
+	margin-bottom: 5px;
+}
+
+.contestant-image {
 	margin-bottom: 0 !important;
+}
+
+.eliminated {
+	-webkit-filter: grayscale(100%);
 }
 
 .group-tabs {
@@ -30,3 +43,5 @@
 .group-details {
 	margin-top: 20px;
 }
+
+
