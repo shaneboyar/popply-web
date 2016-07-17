@@ -7,9 +7,10 @@
 #  last_name       :string
 #  email           :string
 #  password_digest :string
-#  image_link      :string           default("http://i.imgur.com/Rt36YI5.jpg")
+#  image_link      :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  admin           :boolean          default(FALSE)
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
@@ -23,8 +24,9 @@ shane:
  last_name: Boyar
  email: shane.boyar@gmail.com
  password_digest: password
+ admin: true
 
-chris:
+dickbutt:
  first_name: Dick
  last_name: Butt
  email: dick.butt@email.com

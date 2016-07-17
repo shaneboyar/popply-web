@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   get '/about', to: 'pages#about'
   get '/new', to: 'pages#new', as: "splash_page"
 
+  get '/admin', to: 'admin#home'
+  get 'admin/groups', to: 'admin#groups'
+  get 'admin/shows', to: 'admin#shows'
+
   get '/signup', to: 'users#new', as: "signup"
 
   get 'contestants/index'
