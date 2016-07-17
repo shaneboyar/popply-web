@@ -11,9 +11,19 @@
 	display: none;
 }
 
-.nameplate {
+.border-box {
 	border: 1px solid #FFF;
 	padding: 10%;
+}
+
+.nameplate .jumbotron {
+	margin-top: -75px;
+	margin-bottom: -75px;
+}
+
+.splash-form {
+	margin-top: 0% !important;
+	margin-bottom: 50px;
 }
 
 #title {
@@ -32,3 +42,4 @@
 #home-logo img {
 	max-width: 400px;
 }
+
