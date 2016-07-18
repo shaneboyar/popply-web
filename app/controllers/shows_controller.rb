@@ -1,5 +1,5 @@
 class ShowsController < ApplicationController
-	layout false, only: [:new]
+	layout "admin", only: [:new, :key]
 
 	def new
 		@show = Show.new

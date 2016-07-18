@@ -1,6 +1,6 @@
 class AdminController < ApplicationController
 	before_action :admin_user
-	layout false
+	layout "admin"
 
 
 	def home
