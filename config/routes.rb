@@ -14,6 +14,10 @@ Rails.application.routes.draw do
   get '/admin', to: 'admin#home'
   get 'admin/groups', to: 'admin#groups'
   get 'admin/shows', to: 'admin#shows'
+  get 'admin/shows/new', to: 'shows#new', as: 'new_shows'
+  post 'admin/shows/new', to: 'shows#create'
+  delete 'admin/shows/:id', to: 'shows#destroy'
+  get 'admin/shows/:id/key', to: 'shows#key'
 
   get '/signup', to: 'users#new', as: "signup"
 

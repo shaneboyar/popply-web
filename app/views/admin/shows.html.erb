@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>POPPLY</title>
+  <title>POPPLR</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <%= favicon_link_tag 'admin-favicon.ico' %>
@@ -51,7 +51,7 @@
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Shows</h1>
+          <h1 class="page-header">Shows <%= link_to "New Show", new_shows_path, class: "btn btn-success" %></h1>
           <input type="text" class="form-control" placeholder="Search doesn't work yet...">
           <div class="table-responsive">
             <table class="table table-striped">
@@ -60,7 +60,8 @@
                   <th>ID #</th>
                   <th>Title</th>
                   <th>Start Date</th>
-                  <th>See Key</th>
+                  <th>Config</th>
+                  <th>Key</th>
                   <th>Delete</th>
                 </tr>
               </thead>
@@ -70,8 +71,9 @@
                     <td><%= show.id %></td>
                     <td><%= show.title %></td>
                     <td><%= show.start %></td>
-                    <td><%= link_to "See Key", '#' %></td>
-                    <td><%= link_to "Delete Show", '#', data: { confirm: "You sure?" } %></td>
+                    <td><%= link_to "Config", "#" %></td>
+                    <td><%= link_to "See Key", "shows/#{show.id}/key" %></td>
+                    <td><%= link_to "Delete Show", "shows/#{show.id}", method: "delete", data: { confirm: "You sure?" } %></td>
                   </tr>
                 <% end %>
               </tbody>
