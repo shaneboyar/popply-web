@@ -9,6 +9,10 @@ class PagesController < ApplicationController
 
 	def new
 		@splashpage = true
+
+		if user_is_logged_in?
+			redirect_to user_path(User.find(session[:user_id]))
+		end
 	end
 
 end
