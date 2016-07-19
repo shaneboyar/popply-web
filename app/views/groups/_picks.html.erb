@@ -1,6 +1,8 @@
-<% @group.show.show_weeks.each do |week| %>
-	<div class="row">
-		<h4>Week <%= week.id %></h4>
+<div class="row">
+	<% @group.show.show_weeks.each do |week| %>
+		<div class="col-xs-3 col-md-3">
+			<h4>Week <%= week.id %></h4>
+		</div>
 		<% if @group.memberships.find_by(user: @current_user).picks.where(week: week).any? %>
 			<% @group.memberships.find_by(user: @current_user).picks.where(week: week).each do |pick| %>
 				<% @contestant = Contestant.find(pick.contestant_id) %>
@@ -20,5 +22,5 @@
 		<% else %>
 			<%= link_to "Make Picks", new_picks_path(week_id: week.id), class:"btn btn-default"  %>
 		<% end %>
-	</div>
-<% end %>
+	<% end %>
+</div>

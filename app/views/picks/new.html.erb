@@ -1,9 +1,8 @@
 <%= form_for @new_pick, url: new_picks_path, method: "post" do |f| %>
-	<h2>Week <%=@week.id %>: Pick <%=@week.picklimit %> </h2>
+	<h2>Week <%=@week.week %>: Pick <%=@week.picklimit %> </h2>
 	<div class="row" id="limit_checkbox">
-		<% if @week.id != 1 %>
-			<% last_week_id = @week.id - 1 %>
-			<% last_week = ShowWeek.find(last_week_id) %>
+		<% if @week.week != 1 %>
+			<% last_week = @week.week - 1 %>
 			<% last_week_picks = @group.memberships.find_by(user: @current_user).picks.where(week: last_week) %>
 			<% contestants = [] %>
 			<% last_week_picks.each do |pick| %>
@@ -23,7 +22,7 @@
 					<% end %>
 					<%= b.label %>
 			</div>
-		<%= f.hidden_field :week, value: @week.id %>
+		<%= f.hidden_field :week, value: @week.week %>
 		<% end %>
 	</div>
 	<div class="row">

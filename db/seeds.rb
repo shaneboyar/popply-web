@@ -39,8 +39,8 @@ end
 
 show = Show.find(1)
 
-10.downto(1) do |n|
-show.show_weeks.create(picklimit: n)
+(1..10).each do |n|
+show.show_weeks.create(week: n, picklimit: (11-n))
 end
 
 10.times do |n|

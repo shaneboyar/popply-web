@@ -32,8 +32,8 @@ Rails.application.routes.draw do
   get 'groups/:id/group-rankings', to: 'groups#grouprankings', as: 'group_rankings'
   get 'groups/:id/group-picks', to: 'groups#picks', as: 'group_picks'
 
-  get 'groups/:id/picks/week/:week_id', to: 'picks#new', as: 'new_picks'
-  post 'groups/:id/picks/week/:week_id', to: 'picks#create'
+  get 'groups/:id/picks/week/:week_number', to: 'picks#new', as: 'new_picks'
+  post 'groups/:id/picks/week/:week_number', to: 'picks#create'
 
 
   resources :users, :contestants, :groups
