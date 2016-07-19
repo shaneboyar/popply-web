@@ -5,17 +5,17 @@
     <div class="col-xs-6 col-sm-3 placeholder">
       <h1><%= @users.count %></h1>
       <h4>Users</h4>
-      <span class="text-muted">Something else</span>
+      <span class="text-muted"><%= @users.where(["created_at >= ? AND created_at <= ?", Date.today.beginning_of_day, Date.today.end_of_day]).count %> New Today</span>
     </div>
     <div class="col-xs-6 col-sm-3 placeholder">
       <h1><%= @groups.count %></h1>
       <h4>Groups</h4>
-      <span class="text-muted">Something else</span>
+      <span class="text-muted"><%= @groups.where(["created_at >= ? AND created_at <= ?", Date.today.beginning_of_day, Date.today.end_of_day]).count %> New Today</span>
     </div>
     <div class="col-xs-6 col-sm-3 placeholder">
       <h1><%= @shows.count %></h1>
       <h4>Shows</h4>
-      <span class="text-muted">Something else</span>
+      <span class="text-muted"><%= @shows.where(["created_at >= ? AND created_at <= ?", Date.today.beginning_of_day, Date.today.end_of_day]).count %> New Today</span>
     </div>
     <div class="col-xs-6 col-sm-3 placeholder">
       <h1><%= @users.count %></h1>
