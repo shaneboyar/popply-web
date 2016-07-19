@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 20160717145218) do
 
   create_table "show_weeks", force: :cascade do |t|
     t.integer  "show_id"
+    t.integer  "week"
     t.integer  "picklimit"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

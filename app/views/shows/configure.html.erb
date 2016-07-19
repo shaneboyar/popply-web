@@ -1,0 +1,26 @@
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+  <h1 class="page-header"><%= @show.title %> - Settings</h1>
+  <% if @show.show_weeks.count == 0 %>
+  	<%= form_for @show_week, url: :show_weeks do |f| %>
+  	<div class="form-group">
+		<%= f.label :"How many picks in Week 1?" %>
+		<%= f.text_field :picklimit %>
+	</div>
+		<%= f.hidden_field :week, value: 1 %>
+		<%= f.submit "Submit", class: :"btn btn-default" %>
+	<% end %>
+  <% else %>
+  	<% @show.show_weeks[0...-1].each do |show_week| %>
+  		<small>Week <%= show_week.week %>: <%= show_week.picklimit %></small><br />
+	<% end %>
+	<%= form_for @show_week, url: :show_weeks do |f| %>
+  	<div class="form-group">
+  		<% week = (@show.show_weeks.count + 1) %>
+		<%= f.label :"How many picks in Week #{week}?" %>
+		<%= f.text_field :picklimit %>
+	</div>
+		<%= f.hidden_field :week, value: week %>
+		<%= f.submit "Submit", class: :"btn btn-default" %>
+	<% end %>
+  <% end %>
+</div>

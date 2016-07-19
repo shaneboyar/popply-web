@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   post 'admin/shows/new', to: 'shows#create'
   delete 'admin/shows/:id', to: 'shows#destroy'
   get 'admin/shows/:id/key', to: 'shows#key'
+  get 'admin/shows/:id/configure', to: 'shows#configure', as: 'show_weeks'
+  post 'admin/shows/:id/configure', to: 'show_weeks#create'
 
   get '/signup', to: 'users#new', as: "signup"
 

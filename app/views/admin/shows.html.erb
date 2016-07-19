@@ -19,7 +19,7 @@
             <td><%= show.id %></td>
             <td><%= show.title %></td>
             <td><%= show.start %></td>
-            <td><%= link_to "Config", "#" %></td>
+            <td><%= link_to "Config", "shows/#{show.id}/configure" %></td>
             <td><%= link_to "See Key", "shows/#{show.id}/key" %></td>
             <td><%= link_to "Delete Show", "shows/#{show.id}", method: "delete", data: { confirm: "You sure?" } %></td>
           </tr>

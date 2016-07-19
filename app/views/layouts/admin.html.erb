@@ -42,9 +42,9 @@
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="/admin">Overview <span class="sr-only">(current)</span></a></li>
-            <li><a href="/admin/shows">Shows</a></li>
-            <li><a href="/admin/groups">Groups</a></li>
+            <li class="<%= 'active' if params[:action] == 'home' %>"><a href="/admin">Overview <span class="sr-only">(current)</span></a></li>
+            <li class="<%= 'active' if params[:action] == 'shows' %>"><a href="/admin/shows">Shows</a></li>
+            <li class="<%= 'active' if params[:action] == 'groups' %>"><a href="/admin/groups">Groups</a></li>
             <li><iframe width="210" height="157" src="https://www.youtube.com/embed/GOAS-g5EXUo" frameborder="0" allowfullscreen></iframe></iframe></li>
           </ul>
         </div>
