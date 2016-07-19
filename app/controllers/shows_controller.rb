@@ -8,7 +8,7 @@ class ShowsController < ApplicationController
 	def create
 		@show = Show.new(show_params)
 		if @show.save 
-    		redirect_to admin_shows_path
+    		redirect_to show_weeks_path(@show)
   		else 
     		redirect_to admin_shows_path
   		end 
