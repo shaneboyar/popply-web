@@ -16,6 +16,7 @@ class ShowsController < ApplicationController
 
 	def key
 		@show = Show.find(params[:id])
+		@new_key = @show.keys.build
 	end
 
 	def configure

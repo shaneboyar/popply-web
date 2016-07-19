@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get 'admin/shows/new', to: 'shows#new', as: 'new_shows'
   post 'admin/shows/new', to: 'shows#create'
   delete 'admin/shows/:id', to: 'shows#destroy'
-  get 'admin/shows/:id/key', to: 'shows#key'
+  get 'admin/shows/:id/key', to: 'shows#key', as: 'keys'
   get 'admin/shows/:id/configure', to: 'shows#configure', as: 'show_weeks'
   post 'admin/shows/:id/configure', to: 'show_weeks#create'
 

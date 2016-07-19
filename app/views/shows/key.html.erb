@@ -1,5 +1,25 @@
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
   <h1 class="page-header">Key For <%= @show.title %></h1>
+
+	<% unless @show.keys.where(week: 1).any? %>
+		<h1> Make week 1 key </h1>
+		<%= form_for @new_key, url: keys_path, method: "post" do |f| %>
+		<% contestants = Contestant.where(show: @show) %>
+		<%= f.collection_check_boxes :contestant_id, contestants, :id, :name do |b| %>
+			<div class="col-md-2">
+				<%= b.check_box %><br />
+				<%= b.label %>
+			</div>
+		<%= f.hidden_field :week, value: 1 %>
+		<% end %>
+	</div>
+	<div class="row">
+	<%= f.submit "Submit", class: :"btn btn-default", id: :"submit-button", disabled: true %>
+	<% end %>
+		<div class="row" id="limit_checkbox">
+	<% else %>
+		<h1> Make other keys </h1>
+	<% end %>
   
 </div>
     
