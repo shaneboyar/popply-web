@@ -1,0 +1,21 @@
+# == Schema Information
+#
+# Table name: picks
+#
+#  id            :integer          not null, primary key
+#  membership_id :integer
+#  contestant_id :integer
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  week          :integer
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  membership_id: 
+  contestant_id: 
+
+two:
+  membership_id: 
+  contestant_id: 

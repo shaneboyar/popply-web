@@ -1,0 +1,45 @@
+// Place all the styles related to the Pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.splashpage {
+	background: url("http://i.imgur.com/xO7jRrJ.gif") no-repeat center center fixed;;
+    background-size: cover;
+}
+
+.splashpage .navbar {
+	display: none;
+}
+
+.border-box {
+	border: 1px solid #FFF;
+	padding: 10%;
+}
+
+.nameplate .jumbotron {
+	margin-top: -75px;
+	margin-bottom: -75px;
+}
+
+.splash-form {
+	margin-top: 0% !important;
+	margin-bottom: 50px;
+}
+
+#title {
+	color: #FFF;
+	font-weight: 100;
+}
+
+.splashpage .footer-divider {
+	display: none;
+}
+
+.splashpage footer {
+	display: none;
+}
+
+#home-logo img {
+	max-width: 400px;
+}
+

@@ -1,21 +1,46 @@
 Rails.application.routes.draw do
+  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'pages#home'
+  root 'pages#new'
 
+  get '/home', to: 'pages#home'
   get '/about', to: 'pages#about'
-  get '/new', to: 'pages#new', as: "thanks"
+  get '/new', to: 'pages#new', as: "splash_page"
+
+  get '/admin', to: 'admin#home'
+  get 'admin/groups', to: 'admin#groups'
+  get 'admin/shows', to: 'admin#shows'
+  get 'admin/shows/new', to: 'shows#new', as: 'new_show'
+  post 'admin/shows/new', to: 'shows#create'
+  delete 'admin/shows/:id', to: 'shows#destroy'
+  get 'admin/shows/:id/contestant', to: 'contestants#new', as: 'new_contestant'
+  post 'admin/shows/:id/contestant', to: 'contestants#create'
+  get 'admin/shows/:id/key', to: 'shows#key', as: 'keys'
+  post 'admin/shows/:id/key', to: 'shows#keycreate'
+  get 'admin/shows/:id/configure', to: 'shows#configure', as: 'show_weeks'
+  post 'admin/shows/:id/configure', to: 'show_weeks#create'
 
   get '/signup', to: 'users#new', as: "signup"
+
+  get 'contestants/index'
+  get 'contestants/:id', to: 'contestants#show', as: 'contestant'
 
   get '/login', to: 'sessions#new', as: 'login'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
+  get 'groups/:id/group-rankings', to: 'groups#grouprankings', as: 'group_rankings'
+  get 'groups/:id/group-picks', to: 'groups#picks', as: 'group_picks'
 
-  resources :users, :posts
+  get 'groups/:id/picks/week/:week', to: 'picks#new', as: 'new_picks'
+  post 'groups/:id/picks/week/:week', to: 'picks#create'
+
+
+  resources :users, :groups
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

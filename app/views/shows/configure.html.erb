@@ -1,0 +1,69 @@
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+  <h1 class="page-header"><%= @show.title %> - Settings</h1>
+  <div class="row sub-header">
+	  <% if @show.show_weeks.count == 0 %>
+	  	<%= form_for @show_week, url: :show_weeks do |f| %>
+	  	<div class="form-group">
+			<%= f.label :"How many picks in Week 1?" %>
+			<%= f.text_field :picklimit %>
+		</div>
+			<%= f.hidden_field :week, value: 1 %>
+			<%= f.submit "Submit", class: :"btn btn-default" %>
+		<% end %>
+	  <% else %>
+	  	<div class="col-sm-12 col-md-5">
+			<%= form_for @show_week, url: :show_weeks do |f| %>
+		  	<div class="form-group">
+		  		<% week = (@show.show_weeks.count + 1) %>
+				<%= f.label :"How many picks in Week #{week}?" %>
+				<%= f.text_field :picklimit %>
+			</div>
+				<%= f.hidden_field :week, value: week %>
+				<%= f.submit "Submit", class: :"btn btn-default" %>
+			<% end %>
+		</div>
+		<div class="col-sm-12 col-md-4">
+			<div class="table-responsive">
+    			<table class="table table-striped">
+    				<thead>
+				        <tr>
+				          <th class="text-center">Week</th>
+				          <th class="text-center"># Of Picks</th>
+				          <th class="text-center">Key</th>
+				        </tr>
+				    </thead>
+				    <tbody>
+					  	<% @show.show_weeks[0...-1].each do |show_week| %>
+					  		<tr>
+					  			<td class="text-center"><%= show_week.week %></td>
+					  			<td class="text-center"><%= show_week.picklimit %></td>
+					  			<% if @show.keys.where(week: show_week.week).any? %>
+					  				<td class="text-center"><%= link_to "Edit Key", '#' %></td>
+					  			<% elsif show_week.week == 1 || @show.keys.where(week: (show_week.week-1)).any? %>
+					  				<td class="text-center"><%= link_to "Create Key", keys_path(week: show_week.week) %></td>
+				  				<% else %>
+				  					<td class="text-center"> </td>
+				  				<% end %>
+					  		</tr>
+						<% end %>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	  <% end %>
+	</div>
+	<div class="row sub-header">
+		<h1>Contestants <%= link_to "Add Contestant", new_contestant_path, class: "btn btn-success" %></h1> 
+		<% @show.contestants.order(:name).each do |contestant| %>
+		<div class="col-xs-4 col-md-2">
+			<div class="thumbnail">
+				<%= link_to image_tag(contestant.image), contestant%>
+				<div class="caption text-center">
+					<h3><%= contestant.name %></h3>
+				</div>
+			</div>
+		</div>
+		<% end %>
+	</div>
+
+</div>

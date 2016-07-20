@@ -1,0 +1,29 @@
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+  <h1 class="page-header">Shows <%= link_to "New Show", new_show_path, class: "btn btn-success" %></h1>
+  <input type="text" class="form-control" placeholder="Search doesn't work yet...">
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID #</th>
+          <th>Title</th>
+          <th>Start Date</th>
+          <th>Config</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @shows.each do |show| %>
+          <tr>
+            <td><%= show.id %></td>
+            <td><%= show.title %></td>
+            <td><%= show.start %></td>
+            <td><%= link_to "Config", "shows/#{show.id}/configure" %></td>
+            <td><%= link_to "Delete Show", "shows/#{show.id}", method: "delete", data: { confirm: "You sure?" } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= will_paginate @shows %>
+  </div>
+</div>

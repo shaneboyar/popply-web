@@ -18,16 +18,22 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
- body {
+body {
     padding-top: 70px;
-  }
+    font-family:'Roboto', sans-serif;
+}
+
 html, body {
 	margin:0
 }
 
-body {
-	font-family:'Roboto', sans-serif;
-	
+.navbar-brand img{
+	max-width: 100px;
+}
+
+
+.vertical-align {
+    margin-top:10%;
 }
 
 h2 {

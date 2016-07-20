@@ -1,0 +1,26 @@
+# == Schema Information
+#
+# Table name: contestants
+#
+#  id         :integer          not null, primary key
+#  name       :string
+#  image      :string
+#  bio        :text
+#  age        :integer
+#  occupation :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  show_id    :integer
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+<% 26.times do |n| %>
+contestant_<%= n %>:
+ name: <%= Faker::Name.name %>
+ image: <%= Faker::Avatar.image %>
+ bio: <%= Faker::Hipster.paragraph %>
+ age: <%= Faker::Number.between(23, 35) %>
+ occupation: <%= Faker::Company.profession %>
+ show: bachelor
+<% end %>

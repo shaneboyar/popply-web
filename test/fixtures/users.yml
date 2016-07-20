@@ -1,11 +1,40 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  first_name      :string
+#  last_name       :string
+#  email           :string
+#  password_digest :string
+#  image_link      :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  admin           :boolean          default(FALSE)
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 # This model initially had no columns defined.  If you add columns to the
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+shane: 
+ first_name: Shane
+ last_name: Boyar
+ email: shane.boyar@gmail.com
+ password_digest: password
+ admin: true
+
+dickbutt:
+ first_name: Dick
+ last_name: Butt
+ email: dick.butt@email.com
+ password_digest: password
+
+<% 30.times do |n| %>
+user_<%= n %>:
+ first_name: <%= Faker::Name.first_name %>
+ last_name: <%= Faker::Name.last_name %>
+ password_digest: password
+<% end %>

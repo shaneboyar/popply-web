@@ -1,18 +1,22 @@
 class UsersController < ApplicationController
+	skip_before_filter :require_user, only: [:new, :create]
 	before_filter :be_the_right_user, only: [:edit]
 
 
 	def new
 		@user = User.new
+		respond_to do |format|               
+			format.js
+		end
 	end
 
 	def create
 		@user = User.new(user_params)
 		if @user.save 
     		session[:user_id] = @user.id 
-    		redirect_to '/' 
+    		redirect_to user_path(@user) 
   		else 
-    		redirect_to '/signup' 
+    		redirect_to splash_page_path
   		end 
 	end
 
@@ -22,7 +26,7 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
-		@posts = @user.posts.order(created_at: :desc).paginate(page: params[:page]).per_page(10)
+		@groups = @user.groups.order(created_at: :desc).paginate(page: params[:page]).per_page(10)
 	end
 
 	def edit
@@ -31,17 +35,23 @@ class UsersController < ApplicationController
 
   	def update
   		@user = User.find(params[:id])
-  		if @user.save
+  		if @user.update_attributes(user_params)
   			redirect_to user_path
   		else
   			redirect_to edit_user_path
   		end
   	end
 
+  	def destroy
+		@user = User.find_by(id: params[:id])
+    	@user.destroy
+    	redirect_to request.referrer || root_url
+  	end
+
 	private
 
 	def user_params
-		params.require(:user).permit(:first_name, :last_name, :email, :password)
+		params.require(:user).permit(:first_name, :last_name, :email, :password, :image_link)
 	end
 
 	def be_the_right_user

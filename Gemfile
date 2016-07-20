@@ -3,9 +3,9 @@ source 'https://rubygems.org'
 gem 'rails',        '4.2.6'
 gem 'bcrypt',       '3.1.7'
 gem 'faker'
-gem 'carrierwave',  '0.10.0'
-gem 'mini_magick',  '3.8.0'
-gem 'fog',          '1.36.0'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
 gem 'will_paginate','3.0.7'
 gem 'bootstrap-will_paginate', '0.0.10'
 gem 'bootstrap-sass', '3.2.0.0'
@@ -16,6 +16,7 @@ gem 'jquery-rails', '4.0.3'
 gem 'turbolinks',   '2.3.0'
 gem 'jbuilder',     '2.2.3'
 gem 'sdoc',         '0.4.0', group: :doc
+gem 'annotate'
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'
@@ -25,13 +26,13 @@ group :development, :test do
 end
 
 group :test do
-  gem 'minitest-reporters', '1.0.5'
-  gem 'mini_backtrace',     '0.1.3'
-  gem 'guard-minitest',     '2.3.1'
+  gem 'minitest-reporters'
+  gem 'mini_backtrace'
+  gem 'guard-minitest'
 end
 
 group :production do
   gem 'pg',             '0.17.1'
   gem 'rails_12factor', '0.0.2'
-#  gem 'puma',           '3.1.0'
+ #gem 'puma',           '3.1.0'
 end

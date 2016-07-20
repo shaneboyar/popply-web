@@ -1,0 +1,23 @@
+<div class="row">
+	<div class="col-xs-12 col-sm-3 players-box">
+		<h3 class="text-center">Players</h3>
+		<%= render 'groupmembers' %>
+	</div>
+	<div class="clearfix visible-xs-block"></div>
+	<div class="col-xs-12 col-sm-9">
+		<h1><%= @group.title %></h1><small>You're Watching: <%= @group.show.title %></small>
+		<% unless @group.members.include? @current_user %>
+			<%= button_to "Join Group", @group, method: :patch %>
+		<% end %>
+		<ul class="nav nav-tabs group-tabs">
+		  <li role="presentation" class="active" id="rankings"><%= link_to "Rankings", group_rankings_path(@group), remote: :true %></li>
+		  <% if @group.members.include? @current_user %>
+		  	<li role="presentation" id="picks"><%= link_to "My Picks", group_picks_path(@group), remote: :true %></li>
+		  	<li role="presentation" id="chat"><%= link_to "Chat", '/#', remote: :true %></li>
+		  <% end %>
+		</ul>
+		<div class="group-details col-12">
+			<%= render 'grouprankings' %>
+		</div>
+	</div>
+</div>

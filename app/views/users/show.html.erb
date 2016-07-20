@@ -14,16 +14,16 @@
   </div>
   <div class="col-sm-6 col-md-8">
     <% if session[:user_id] == @user.id %>
-      <%= link_to "New Post", new_post_path, class: :"btn btn-success btn-block", role: :"button", remote: :true, id: :"new-button" %>
-      <div id="new-post">
+      <%= link_to "New Group", new_group_path, class: :"btn btn-success btn-block", role: :"button", remote: :true, id: :"new-button" %>
+      <div id="new-group">
         <!-- This is where the post input will appear -->
       </div>
     <% end %>
-    <% if @user.posts.any? %>
-      <ol class="posts">
-        <%= render @posts %>
+    <% if @user.groups.any? %>
+      <ol class="groups">
+        <%= render @groups %>
       </ol>
-      <%= will_paginate @posts %>
+      <%= will_paginate @groups %>
     <% end %>
   </div>
 </div>

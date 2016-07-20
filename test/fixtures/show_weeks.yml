@@ -1,0 +1,19 @@
+# == Schema Information
+#
+# Table name: show_weeks
+#
+#  id         :integer          not null, primary key
+#  show_id    :integer
+#  week       :integer
+#  picklimit  :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+<% 10.times do |n| %>
+week_<%= n %>:
+ show: bachelor
+ picklimit: 11 - <%= n %>
+<% end %>
