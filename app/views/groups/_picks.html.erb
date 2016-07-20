@@ -1,7 +1,7 @@
 
 <% @group.show.show_weeks.each do |week| %>
 	<div class="row">
-		<div class="col-xs-3 col-md-3">
+		<div class="col-xs-12 col-md-12">
 			<h4>Week <%= week.week %></h4>
 		
 		<% if @group.memberships.find_by(user: @current_user).picks.where(week: week).any? %>
