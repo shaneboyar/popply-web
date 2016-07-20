@@ -1,137 +1,4 @@
-/* line 5, /Users/shaneboyar/workspace/popply/app/assets/stylesheets/groups.scss */
-.group_title {
-  font-size: 24px;
-}
-
-/* line 9, /Users/shaneboyar/workspace/popply/app/assets/stylesheets/groups.scss */
-.new_group {
-  margin-top: 10px;
-}
-
-/* line 13, /Users/shaneboyar/workspace/popply/app/assets/stylesheets/groups.scss */
-.players-box {
-  border: 1px solid #000;
-  padding-bottom: 10px;
-}
-
-/* line 18, /Users/shaneboyar/workspace/popply/app/assets/stylesheets/groups.scss */
-.player-image {
-  margin-bottom: 0 !important;
-}
-
-/* line 22, /Users/shaneboyar/workspace/popply/app/assets/stylesheets/groups.scss */
-.player-name {
-  margin-bottom: 5px;
-}
-
-/* line 27, /Users/shaneboyar/workspace/popply/app/assets/stylesheets/groups.scss */
-.contestant-name {
-  margin-bottom: 5px;
-}
-
-/* line 31, /Users/shaneboyar/workspace/popply/app/assets/stylesheets/groups.scss */
-.contestant-image {
-  margin-bottom: 0 !important;
-}
-
-/* line 35, /Users/shaneboyar/workspace/popply/app/assets/stylesheets/groups.scss */
-.eliminated {
-  -webkit-filter: grayscale(100%);
-}
-
-/* line 39, /Users/shaneboyar/workspace/popply/app/assets/stylesheets/groups.scss */
-.group-tabs {
-  margin-top: 20px;
-}
-
-/* line 43, /Users/shaneboyar/workspace/popply/app/assets/stylesheets/groups.scss */
-.group-details {
-  margin-top: 20px;
-}
-/* line 5, /Users/shaneboyar/workspace/popply/app/assets/stylesheets/pages.scss */
-.splashpage {
-  background: url("http://i.imgur.com/xO7jRrJ.gif") no-repeat center center fixed;
-  background-size: cover;
-}
-
-/* line 10, /Users/shaneboyar/workspace/popply/app/assets/stylesheets/pages.scss */
-.splashpage .navbar {
-  display: none;
-}
-
-/* line 14, /Users/shaneboyar/workspace/popply/app/assets/stylesheets/pages.scss */
-.border-box {
-  border: 1px solid #FFF;
-  padding: 10%;
-}
-
-/* line 19, /Users/shaneboyar/workspace/popply/app/assets/stylesheets/pages.scss */
-.nameplate .jumbotron {
-  margin-top: -75px;
-  margin-bottom: -75px;
-}
-
-/* line 24, /Users/shaneboyar/workspace/popply/app/assets/stylesheets/pages.scss */
-.splash-form {
-  margin-top: 0% !important;
-  margin-bottom: 50px;
-}
-
-/* line 29, /Users/shaneboyar/workspace/popply/app/assets/stylesheets/pages.scss */
-#title {
-  color: #FFF;
-  font-weight: 100;
-}
-
-/* line 34, /Users/shaneboyar/workspace/popply/app/assets/stylesheets/pages.scss */
-.splashpage .footer-divider {
-  display: none;
-}
-
-/* line 38, /Users/shaneboyar/workspace/popply/app/assets/stylesheets/pages.scss */
-.splashpage footer {
-  display: none;
-}
-
-/* line 42, /Users/shaneboyar/workspace/popply/app/assets/stylesheets/pages.scss */
-#home-logo img {
-  max-width: 400px;
-}
-/* line 5, /Users/shaneboyar/workspace/popply/app/assets/stylesheets/users.scss */
-.groups {
-  list-style: none;
-  padding: 10px 0;
-}
-/* line 8, /Users/shaneboyar/workspace/popply/app/assets/stylesheets/users.scss */
-.groups li {
-  padding: 10px 0;
-  border-top: 1px solid #e8e8e8;
-}
-/* line 12, /Users/shaneboyar/workspace/popply/app/assets/stylesheets/users.scss */
-.groups .timestamp {
-  color: gray;
-}
-
-/* line 17, /Users/shaneboyar/workspace/popply/app/assets/stylesheets/users.scss */
-#new-league {
-  margin-top: 10px;
-}
 @charset "UTF-8";
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
-
-
- */
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 /* line 9, /Users/shaneboyar/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bootstrap-sass-3.2.0.0/assets/stylesheets/bootstrap/_normalize.scss */
 html {
@@ -8157,29 +8024,132 @@ button.close {
     display: none !important;
   }
 }
-/* line 21, /Users/shaneboyar/workspace/popply/app/assets/stylesheets/application.scss */
+/*
+ * Base structure
+ */
+/* Move down content because we have a fixed navbar that is 50px tall */
+/* line 10, /Users/shaneboyar/workspace/popply/app/assets/stylesheets/admin.scss */
 body {
-  padding-top: 70px;
+  padding-top: 50px;
+}
+
+/*
+ * Global add-ons
+ */
+/* line 19, /Users/shaneboyar/workspace/popply/app/assets/stylesheets/admin.scss */
+.placeholder {
   font-family: 'Roboto', sans-serif;
 }
-
-/* line 26, /Users/shaneboyar/workspace/popply/app/assets/stylesheets/application.scss */
-html, body {
-  margin: 0;
+/* line 22, /Users/shaneboyar/workspace/popply/app/assets/stylesheets/admin.scss */
+.placeholder h1 {
+  font-size: 150px;
 }
 
-/* line 30, /Users/shaneboyar/workspace/popply/app/assets/stylesheets/application.scss */
-.navbar-brand img {
-  max-width: 100px;
+/* line 28, /Users/shaneboyar/workspace/popply/app/assets/stylesheets/admin.scss */
+.sub-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
 }
 
-/* line 35, /Users/shaneboyar/workspace/popply/app/assets/stylesheets/application.scss */
-.vertical-align {
-  margin-top: 10%;
+/*
+ * Top navigation
+ * Hide default border to remove 1px line.
+ */
+/* line 37, /Users/shaneboyar/workspace/popply/app/assets/stylesheets/admin.scss */
+.navbar-fixed-top {
+  border: 0;
 }
 
-/* line 39, /Users/shaneboyar/workspace/popply/app/assets/stylesheets/application.scss */
-h2 {
-  font-size: 45px;
-  font-weight: 300;
+/*
+ * Sidebar
+ */
+/* Hide for mobile, show later */
+/* line 46, /Users/shaneboyar/workspace/popply/app/assets/stylesheets/admin.scss */
+.sidebar {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  /* line 50, /Users/shaneboyar/workspace/popply/app/assets/stylesheets/admin.scss */
+  .sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    /* Scrollable contents if viewport is shorter than content. */
+    background-color: #f5f5f5;
+    border-right: 1px solid #eee;
+  }
+}
+/* Sidebar navigation */
+/* line 66, /Users/shaneboyar/workspace/popply/app/assets/stylesheets/admin.scss */
+.nav-sidebar {
+  margin-right: -21px;
+  /* 20px padding + 1px border */
+  margin-bottom: 20px;
+  margin-left: -20px;
+}
+
+/* line 71, /Users/shaneboyar/workspace/popply/app/assets/stylesheets/admin.scss */
+.nav-sidebar > li > a {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+/* line 75, /Users/shaneboyar/workspace/popply/app/assets/stylesheets/admin.scss */
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+  color: #fff;
+  background-color: #428bca;
+}
+
+/*
+ * Main content
+ */
+/* line 87, /Users/shaneboyar/workspace/popply/app/assets/stylesheets/admin.scss */
+.main {
+  padding: 20px;
+}
+
+@media (min-width: 768px) {
+  /* line 91, /Users/shaneboyar/workspace/popply/app/assets/stylesheets/admin.scss */
+  .main {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+/* line 96, /Users/shaneboyar/workspace/popply/app/assets/stylesheets/admin.scss */
+.main .page-header {
+  margin-top: 0;
+}
+
+/*
+ * Placeholder dashboard ideas
+ */
+/* line 105, /Users/shaneboyar/workspace/popply/app/assets/stylesheets/admin.scss */
+.placeholders {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* line 109, /Users/shaneboyar/workspace/popply/app/assets/stylesheets/admin.scss */
+.placeholders h4 {
+  margin-bottom: 0;
+}
+
+/* line 112, /Users/shaneboyar/workspace/popply/app/assets/stylesheets/admin.scss */
+.placeholder {
+  margin-bottom: 20px;
+}
+
+/* line 115, /Users/shaneboyar/workspace/popply/app/assets/stylesheets/admin.scss */
+.placeholder img {
+  display: inline-block;
+  border-radius: 50%;
 }
