@@ -14,6 +14,7 @@
 		  <% if @group.members.include? @current_user %>
 		  	<li role="presentation" id="picks"><%= link_to "My Picks", group_picks_path(@group), remote: :true %></li>
 		  	<li role="presentation" id="chat"><%= link_to "Chat", '/#', remote: :true %></li>
+		  	<li role="presentation" id="posts"><%= link_to "Posts", group_posts_path(@group), remote: :true %></li>
 		  <% end %>
 		</ul>
 		<div class="group-details col-12">
