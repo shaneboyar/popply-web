@@ -3,7 +3,7 @@
 	<% unless @show.keys.where(week: 1).any? %>
 		<h1> Make week 1 key </h1>
 		<%= form_for @new_key, url: keys_path, method: "post" do |f| %>
-		<% contestants = Contestant.where(show: @show) %>
+		<% contestants = Contestant.where(show: @show).order(:name) %>
 		<div class="row">
 			<%= f.collection_check_boxes :contestant_id, contestants, :id, :name do |b| %>
 				<div class="col-md-2">

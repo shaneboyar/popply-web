@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get 'admin/shows/:id/contestant', to: 'contestants#new', as: 'new_contestant'
   post 'admin/shows/:id/contestant', to: 'contestants#create'
   get 'admin/shows/:id/key', to: 'shows#key', as: 'keys'
+  post 'admin/shows/:id/key', to: 'shows#keycreate'
   get 'admin/shows/:id/configure', to: 'shows#configure', as: 'show_weeks'
   post 'admin/shows/:id/configure', to: 'show_weeks#create'
 

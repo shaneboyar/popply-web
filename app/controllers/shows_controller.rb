@@ -19,6 +19,19 @@ class ShowsController < ApplicationController
 		@new_key = @show.keys.build
 	end
 
+	def keycreate
+		@show = Show.find(params[:id])
+		@new_key = @show.keys.build
+		params["key"]["contestant_id"][0..-2].each do |contestant_id|
+			@new_key = @show.keys.create(contestant_id: contestant_id, week: params["key"]["week"])
+		end
+		if @new_key.save  
+		  redirect_to show_weeks_path(@show)  
+		else 
+		  redirect_to show_weeks_path(@show)
+		end
+	end
+
 	def configure
 		@show = Show.find(params[:id])
 		@show_week = @show.show_weeks.build
@@ -36,6 +49,10 @@ class ShowsController < ApplicationController
 
 	def show_params
 		params.require(:show).permit(:title, :start)
+	end
+
+	def key_params
+		params.permit(:contestant_id, :week)
 	end
 	
 
