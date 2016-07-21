@@ -38,7 +38,7 @@
 					  			<td class="text-center"><%= show_week.week %></td>
 					  			<td class="text-center"><%= show_week.picklimit %></td>
 					  			<% if @show.keys.where(week: show_week.week).any? %>
-					  				<td class="text-center"><%= link_to "Edit Key", '#' %></td>
+					  				<td class="text-center"><%= link_to "Edit Key", edit_key_path(week: show_week.week) %></td>
 					  			<% elsif show_week.week == 1 || @show.keys.where(week: (show_week.week-1)).any? %>
 					  				<td class="text-center"><%= link_to "Create Key", keys_path(week: show_week.week) %></td>
 				  				<% else %>

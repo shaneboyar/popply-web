@@ -1,5 +1,5 @@
 class ShowsController < ApplicationController
-	layout "admin", only: [:new, :key, :configure]
+	layout "admin", only: [:new, :key, :keyedit, :configure]
 
 	def new
 		@show = Show.new
@@ -32,10 +32,25 @@ class ShowsController < ApplicationController
 		end
 	end
 
+	def keyedit
+		@key = Key.where(show: params[:id]).where(week: params[:week])
+	end
+
+	def keyupdate
+		@key = Key.where(show: params[:id]).where(week: params[:week])
+		params["key"]["contestant_id"][0..-2].each do |contestant_id|
+			@key = @show.keys.update_attributes(contestant_id: contestant_id, week: params["key"]["week"])
+		end
+  		if @key.save
+  			redirect_to show_week_path(@show)
+  		else
+  			redirect_to show_week_path(@show)
+  		end
+	end
+
 	def configure
 		@show = Show.find(params[:id])
 		@show_week = @show.show_weeks.build
-
 	end
 
 	def destroy

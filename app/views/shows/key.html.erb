@@ -18,7 +18,26 @@
 		</div>
 		<% end %>		
 	<% else %>
-		<h1> Make other keys </h1>
+		<h1> Make week <%= params[:week] %> key </h1>
+		<%= form_for @new_key, url: keys_path, method: "post" do |f| %>
+		<% last_week_keys = Key.where(show: @show).where(week: (params["week"].to_i - 1)) %>
+		<% contestants = [] %>
+		<% last_week_keys.each do |key| %>
+			<% contestants.push(key.contestant) %>
+		<% end %>
+		<div class="row">
+			<%= f.collection_check_boxes :contestant_id, contestants, :id, :name do |b| %>
+				<div class="col-md-2">
+					<%= b.check_box %><br />
+					<%= b.label %>
+				</div>
+			<% end %>
+		</div>
+		<%= f.hidden_field :week, value: params[:week] %>
+		<div class="row" id="limit_checkbox">
+			<%= f.submit "Submit", class: :"btn btn-default", id: :"submit-button" %>
+		</div>
+		<% end %>
 	<% end %>
   
 </div>

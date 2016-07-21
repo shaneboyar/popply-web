@@ -21,6 +21,9 @@ Rails.application.routes.draw do
   post 'admin/shows/:id/contestant', to: 'contestants#create'
   get 'admin/shows/:id/key', to: 'shows#key', as: 'keys'
   post 'admin/shows/:id/key', to: 'shows#keycreate'
+  get 'admin/shows/:id/key/:week/edit', to: 'shows#keyedit', as: 'edit_key'
+  patch 'admin/shows/:id/key/:week/', to: 'shows#keyupdate', as: 'update_key'
+  put 'admin/shows/:id/key/:week/', to: 'shows#keyupdate'
   get 'admin/shows/:id/configure', to: 'shows#configure', as: 'show_weeks'
   post 'admin/shows/:id/configure', to: 'show_weeks#create'
 

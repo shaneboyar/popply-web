@@ -1,0 +1,18 @@
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+	<h1> Make week <%= params[:week] %> key </h1>
+	<%= form_for @key, url: edit_key_path, method: "patch" do |f| %> <!--Something Wrong! -->
+	<% contestants = Contestant.where(show: @show).order(:name) %>
+	<div class="row">
+		<%= f.collection_check_boxes :contestant_id, contestants, :id, :name do |b| %>
+			<div class="col-md-2">
+				<%= b.check_box %><br />
+				<%= b.label %>
+			</div>
+		<% end %>
+	</div>
+	<%= f.hidden_field :week, value: params[:week] %>
+	<div class="row" id="limit_checkbox">
+		<%= f.submit "Update", class: :"btn btn-default" %>
+	</div>
+	<% end %>
+</div>
