@@ -40,11 +40,14 @@ Rails.application.routes.draw do
   get 'groups/:id/picks', to: 'groups#picks', as: 'group_picks'
   get 'groups/:id/posts', to: 'groups#posts', as: 'group_posts'
 
+  get 'groups/:id/posts/new', to: 'posts#new', as: 'new_post'
+  post 'groups/:id/posts/new', to: 'posts#create'
+
   get 'groups/:id/picks/week/:week', to: 'picks#new', as: 'new_picks'
   post 'groups/:id/picks/week/:week', to: 'picks#create'
 
 
-  resources :users, :groups, :posts
+  resources :users, :groups
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
