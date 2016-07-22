@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-	before_action :load_group, only: [:show, :update, :picks, :grouprankings, :chat]
+	before_action :load_group, only: [:show, :update, :picks, :grouprankings, :posts, :chat]
 
 	def load_group
   		@group = Group.find(params[:id])
@@ -56,6 +56,7 @@ class GroupsController < ApplicationController
 	end
 
 	def posts
+		@posts = Post.where(group: @group)
   		respond_to do |format|               
 			format.js
 		end
