@@ -46,13 +46,6 @@ if Rails.env.development?
 	show.show_weeks.create(week: n, picklimit: (11-n))
 	end
 
-	10.times do |n|
-		(n+1).times do |x|
-			contestant = Contestant.find(x+1)
-			show.keys.create(contestant: contestant, week: 10-n)
-		end
-	end
-
 	3.times do 
 		user_id = Faker::Number.between(1, 10)
 		user = User.find(user_id)
