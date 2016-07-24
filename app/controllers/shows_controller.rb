@@ -48,6 +48,7 @@ class ShowsController < ApplicationController
 			
 			matches = winners & player_winners
 
+			#TODO - LET ADMIN CONFIGURE SCORING STRUCTURE
 			if params["key"]["week"].to_i < 7
 				player.score = player.score + matches.count
 			elsif params["key"]["week"].to_i == 7
