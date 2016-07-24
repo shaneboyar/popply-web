@@ -16,6 +16,7 @@ class UsersController < ApplicationController
     		session[:user_id] = @user.id 
     		redirect_to user_path(@user) 
   		else 
+  			flash[:danger] = 'Sign Up failed. Please try again.'
     		redirect_to splash_page_path
   		end 
 	end
