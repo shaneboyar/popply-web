@@ -23,10 +23,10 @@ class GroupsController < ApplicationController
 		custom_params = { owner_id: @current_user.id, show_id: 1 }
 		group_params_with_owner = group_params.merge(custom_params)
 		@group = @current_user.groups.create(group_params_with_owner)
-		if @group.save  
-		  redirect_to user_path(@current_user) 
+		if @group.save 
+			redirect_to user_path(@current_user) 
 		else 
-		  redirect_to '/' 
+		 	redirect_to '/' 
 		end 
 	end
 
@@ -38,6 +38,7 @@ class GroupsController < ApplicationController
 	def destroy
 		@group = current_user.groups.find_by(id: params[:id])
     	@group.destroy
+    	flash[:success] = "Group deleted"
     	redirect_to request.referrer || root_url
   	end
 
