@@ -1,26 +1,7 @@
 <ol>
 	<% @group.memberships.each do |member| %>
-		<% @score = 0 %>
-		<% show = @group.show %>
-		<% (@group.show.show_weeks.count).times do |n| %>
-			<% @key = [] %>
-			<% @week_keys = Key.where(show: show).where(week: n) %>
-			<% @week_keys.each do |week_key| %>
-				<% contestant = Contestant.find(week_key.contestant_id) %>
-				<% @key.push(contestant) %>
-			<% end %>
-			<% @upicks = member.picks.where(week: n) %>
-			<% @picks = [] %>
-			<% @upicks.each do |pick| %>
-				<% contestant = Contestant.find(pick.contestant_id) %>
-				<% @picks.push(contestant) %>
-			<% end %>
-			<% @week_matches = @key & @picks %>
-			<% @week_score = @week_matches.count %>
-			<% @score = @score + @week_score %>
-		<% end %>
 		<li>
-			<%= User.find(member.user_id).first_name %>: <%= @score %>
+			<%= User.find(member.user_id).first_name %>: <%= member.score %>
 		</li>
 	<% end %>
 </ol>

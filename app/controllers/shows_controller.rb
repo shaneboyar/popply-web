@@ -22,14 +22,48 @@ class ShowsController < ApplicationController
 	def keycreate
 		@show = Show.find(params[:id])
 		@new_key = @show.keys.build
+		week = 
+		
 		params["key"]["contestant_id"][0..-2].each do |contestant_id|
 			@new_key = @show.keys.create(contestant_id: contestant_id, week: params["key"]["week"])
 		end
-		if @new_key.save  
-		  redirect_to show_weeks_path(@show)  
-		else 
-		  redirect_to show_weeks_path(@show)
+		
+		keys = Key.where(show: @show).where(week: params["key"]["week"])
+		winners = []
+		
+		keys.each do |key|
+			winner = Contestant.find(key.contestant_id)
+			winners.push(winner)
 		end
+		
+		players = Membership.where(group: Group.where(show_id: @show.id))
+		players.each do |player|
+			player_picks = player.picks.where(week: params["key"]["week"])
+			player_winners = []
+			
+			player_picks.each do |player_pick|
+				player_winner = Contestant.find(player_pick.contestant_id)
+				player_winners.push(player_winner)
+			end
+			
+			matches = winners & player_winners
+
+			if params["key"]["week"].to_i < 7
+				player.score = player.score + matches.count
+			elsif params["key"]["week"].to_i == 7
+				player.score = player.score + (matches.count * 10)
+			elsif params["key"]["week"].to_i == 8
+				player.score = player.score + (matches.count * 15)
+			elsif params["key"]["week"].to_i == 9
+				player.score = player.score + (matches.count * 20)
+			elsif params["key"]["week"].to_i == 10
+				player.score += (matches.count * 30)
+			end		
+
+			player.save
+		end
+		
+		redirect_to show_weeks_path(@show)
 	end
 
 	def keyedit
