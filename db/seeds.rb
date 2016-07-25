@@ -13,7 +13,7 @@ if Rails.env.development?
 		last_name = Faker::Name.last_name
 		email = Faker::Internet.free_email(first_name)
 		password = Faker::Internet.password
-		user = User.new(first_name: first_name, last_name: last_name, email: email, password: password)
+		user = User.new(first_name: first_name, last_name: last_name, email: email, password: password, password_confirmation: password)
 		user.save
 	end
 
@@ -21,7 +21,7 @@ if Rails.env.development?
 	last_name = "Boyar"
 	email = "shane.boyar@gmail.com"
 	password = "password"
-	user = User.new(first_name: first_name, last_name: last_name, email: email, password: password, admin: true)
+	user = User.new(first_name: first_name, last_name: last_name, email: email, password: password, password_confirmation: password, admin: true)
 	user.save
 
 	title = "The Bachelor"
