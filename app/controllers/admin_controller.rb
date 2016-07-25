@@ -7,6 +7,7 @@ class AdminController < ApplicationController
 		@users = User.all.paginate(page: params[:page]).per_page(10)
 		@groups = Group.all.paginate(page: params[:page]).per_page(10)
 		@shows = Show.all.paginate(page: params[:page]).per_page(10)
+		@posts = Post.all.paginate(page: params[:page]).per_page(10)
 	end
 
 	def groups
