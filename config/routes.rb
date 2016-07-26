@@ -48,7 +48,7 @@ Rails.application.routes.draw do
   post 'groups/:id/picks/week/:week', to: 'picks#create'
 
 
-  resources :users, :groups
+  resources :users, :groups, :posts
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

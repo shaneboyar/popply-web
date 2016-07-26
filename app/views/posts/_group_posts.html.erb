@@ -6,7 +6,10 @@
 					<%= post.content %>
 				</p>
 				<small class="byline">
-					Written by <%= User.find(Membership.find(post.membership_id).user_id).first_name %> - <%= time_ago_in_words(post.created_at) %> ago.
+					Written by <%= User.find(Membership.find(post.membership_id).user_id).first_name %> - <%= time_ago_in_words(post.created_at) %> ago. 
+						<% if current_user.id == Membership.find(post.membership_id).user_id %>
+							<%= link_to "(delete)", post, method: :delete, data: { confirm: "You sure?" } %>
+						<% end %>
 				</small>
 			</li>
 		</ol>

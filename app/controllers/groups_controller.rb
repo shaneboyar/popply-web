@@ -57,7 +57,7 @@ class GroupsController < ApplicationController
 	end
 
 	def posts
-		@posts = Post.where(group: @group)
+		@posts = Post.where(group: @group).order(created_at: :desc)
   		respond_to do |format|               
 			format.js
 		end
