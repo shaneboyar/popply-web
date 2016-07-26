@@ -4,20 +4,20 @@
       <%= image_tag(@user.image_link) %>
       <div class="caption">
         <h3><%= @user.first_name%> <%= @user.last_name %></h3>
-        <% if session[:user_id] == @user.id %>
+        <% if current_user == @user %>
         <p>
-          <%= link_to "Edit Profile", edit_user_path, class: :"btn btn-default", role: :"button" %>
+          <%= link_to "Edit Profile", edit_user_registration_path, class: :"btn btn-default", role: :"button" %>
         </p>
         <% end %>
       </div>
     </div>
   </div>
   <div class="col-sm-6 col-md-8">
-    <% if session[:user_id] == @user.id %>
-      <%= link_to "New Group", new_group_path, class: :"btn btn-success btn-block", role: :"button", remote: :true, id: :"new-button" %>
-      <% flash.each do |message_type, message| %>
+    <% flash.each do |message_type, message| %>
         <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
       <% end %>
+    <% if current_user == @user %>
+      <%= link_to "New Group", new_group_path, class: :"btn btn-success btn-block", role: :"button", remote: :true, id: :"new-button" %>
       <div id="new-group">
         <!-- This is where the post input will appear -->
       </div>

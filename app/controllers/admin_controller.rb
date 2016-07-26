@@ -23,7 +23,7 @@ private
 
 	#Confirms an admin user.
 	def admin_user
-	  redirect_to user_path(@current_user) unless current_user.admin?
+	  redirect_to user_path(current_user) unless current_user.admin?
 	end
 
 end

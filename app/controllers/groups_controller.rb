@@ -11,7 +11,7 @@ class GroupsController < ApplicationController
 
 
 	def new
-		@group = @current_user.groups.build
+		@group = current_user.groups.build
 		respond_to do |format|               
 			format.js
 		end
@@ -20,18 +20,18 @@ class GroupsController < ApplicationController
 	def create
 		# hack to force the user to be both an owner, and have a membership
 		# TODO: model owner on the membership model
-		custom_params = { owner_id: @current_user.id, show_id: 1 }
+		custom_params = { owner_id: current_user.id, show_id: 1 }
 		group_params_with_owner = group_params.merge(custom_params)
-		@group = @current_user.groups.create(group_params_with_owner)
+		@group = current_user.groups.create(group_params_with_owner)
 		if @group.save 
-			redirect_to user_path(@current_user) 
+			redirect_to user_path(current_user) 
 		else 
 		 	redirect_to '/' 
 		end 
 	end
 
 	def update
-		@group.members.push(@current_user)
+		@group.members.push(current_user)
 		redirect_to request.referrer || root_url
 	end
 
@@ -43,7 +43,7 @@ class GroupsController < ApplicationController
   	end
 
   	def picks
-  		@picks = @group.memberships.find_by(user: @current_user).picks
+  		@picks = @group.memberships.find_by(user: current_user).picks
   		respond_to do |format|               
 			format.js
 		end
