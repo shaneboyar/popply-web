@@ -70,4 +70,28 @@ if Rails.env.development?
 		group.members.push(user)
 	end
 
+else
+
+	title = "The Bachelor"
+	start = Faker::Time.forward(23, :morning)
+	show = Show.new(title: title, start: start)
+	show.save
+
+	26.times do 
+		name = Faker::Name.name
+		image = Faker::Avatar.image
+		bio = Faker::Hipster.paragraph
+		age = Faker::Number.between(23, 35)
+		show = Show.find(1)
+		occupation = Faker::Company.profession
+		contestant = Contestant.new(name: name, image: image, bio: bio, age: age, occupation: occupation, show_id: show.id)
+		contestant.save
+	end
+
+	show = Show.find(1)
+
+	(1..10).each do |n|
+	show.show_weeks.create(week: n, picklimit: (11-n))
+	end
+
 end
