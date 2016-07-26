@@ -13,9 +13,6 @@
     </div>
   </div>
   <div class="col-sm-6 col-md-8">
-    <% flash.each do |message_type, message| %>
-        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
-      <% end %>
     <% if current_user == @user %>
       <%= link_to "New Group", new_group_path, class: :"btn btn-success btn-block", role: :"button", remote: :true, id: :"new-button" %>
       <div id="new-group">

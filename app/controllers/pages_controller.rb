@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-	skip_before_filter :require_user, only: :new
+	skip_before_filter :authenticate_user!, only: :new
 
 	def home
 	end
