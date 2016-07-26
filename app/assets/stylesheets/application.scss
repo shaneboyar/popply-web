@@ -40,3 +40,11 @@ h2 {
 	font-size:45px;
 	font-weight:300;
 }
+
+.alert-alert {
+  @extend .alert-warning;
+}
+
+.alert-notice {
+  @extend .alert-info;
+}
