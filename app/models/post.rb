@@ -13,4 +13,5 @@
 class Post < ActiveRecord::Base
   belongs_to :membership
   belongs_to :group
+  has_many :comments
 end

@@ -16,5 +16,6 @@ class Membership < ActiveRecord::Base
 	has_many :picks, dependent: :destroy
 	has_many :contestants, through: :picks
 	has_many :posts, dependent: :destroy
+	has_many :comments, dependent: :destroy
 	default_scope -> { order(score: :desc) }
 end
