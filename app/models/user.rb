@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable
-	has_many :owned_groups, foreign_key: "owner_id", class_name: "Group"
+	has_many :owned_groups, foreign_key: "owner_id", class_name: "Group", dependent: :destroy
 	has_many :groups, through: :memberships
 	has_many :memberships
 	mount_uploader :image_link, AvatarUploader

@@ -36,7 +36,7 @@ class GroupsController < ApplicationController
 	end
 
 	def destroy
-		@group = current_user.groups.find_by(id: params[:id])
+		@group = Group.find(params[:id])
     	@group.destroy
     	flash[:success] = "Group deleted"
     	redirect_to request.referrer || root_url
