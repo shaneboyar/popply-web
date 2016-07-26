@@ -1,7 +1,7 @@
 <% if @posts.any? %>
 	<% @posts.each do |post| %>
 		<ol class="posts">
-			<li>
+			<li class="main">
 				<p>
 					<%= post.content %>
 				</p>
@@ -13,6 +13,16 @@
 							<%= link_to "(delete)", post, method: :delete, data: { confirm: "You sure?" } %>
 						<% end %>
 				</small>
+				<% if post.comments.any? %>
+					<ul class="list-group comments">
+						<% post.comments.each do |comment| %>
+						<% user = User.find(Membership.find(comment.membership_id).user_id) %>
+						<li class="list-group-item">
+							<%= user.first_name %>: <%= comment.content %> - <small><%= time_ago_in_words(comment.created_at) %> ago.</small>
+						</li>
+						<% end %>
+					</ul>
+				<% end %>
 			</li>
 		</ol>
 	<% end %>

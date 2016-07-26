@@ -6,13 +6,16 @@
 .posts {
   list-style: none;
   padding: 10px 0;
-  li {
-    padding: 10px 0;
-    border-top: 1px solid #e8e8e8;
-  }
-  .byline {
-    color: gray;
-  }
+    .main {
+      padding: 10px 0;
+      border-top: 1px solid #e8e8e8;
+    }
+    .byline {
+      color: gray;
+    }
+    .comments {
+      
+    }
 }
 
 #new-post .field {
