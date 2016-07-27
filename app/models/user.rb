@@ -19,6 +19,10 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string
 #  last_sign_in_ip        :string
+#  confirmation_token     :string
+#  confirmed_at           :datetime
+#  confirmation_sent_at   :datetime
+#  unconfirmed_email      :string
 #
 
 class User < ActiveRecord::Base
@@ -31,6 +35,7 @@ class User < ActiveRecord::Base
 	has_many :groups, through: :memberships
 	has_many :memberships
   has_many :comments, dependent: :destroy
+  has_many :posts, dependent: :destroy
 	mount_uploader :image_link, AvatarUploader
 	before_save   :downcase_email
 	validates :first_name, presence: true

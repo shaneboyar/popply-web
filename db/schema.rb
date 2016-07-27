@@ -72,16 +72,15 @@ ActiveRecord::Schema.define(version: 20160727173338) do
   add_index "picks", ["membership_id"], name: "index_picks_on_membership_id"
 
   create_table "posts", force: :cascade do |t|
-    t.integer  "membership_id"
+    t.integer  "user_id"
     t.integer  "group_id"
     t.text     "content"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string   "title"
   end
 
   add_index "posts", ["group_id"], name: "index_posts_on_group_id"
-  add_index "posts", ["membership_id"], name: "index_posts_on_membership_id"
 
   create_table "show_weeks", force: :cascade do |t|
     t.integer  "show_id"
@@ -123,6 +122,7 @@ ActiveRecord::Schema.define(version: 20160727173338) do
     t.string   "unconfirmed_email"
   end
 
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
