@@ -37,7 +37,8 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  get 'groups/:id/rankings', to: 'groups#grouprankings', as: 'group_rankings'
+
+  get 'groups/:id', to: 'groups#rankings', as: 'group_rankings'
   get 'groups/:id/picks', to: 'groups#picks', as: 'group_picks'
   get 'groups/:id/posts', to: 'groups#posts', as: 'group_posts'
 
@@ -52,7 +53,7 @@ Rails.application.routes.draw do
   post 'groups/:id/picks/week/:week', to: 'picks#create'
 
 
-  resources :users, :groups, :posts, :comments
+  resources :users, :posts, :comments
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

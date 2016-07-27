@@ -1,0 +1,9 @@
+<%= render layout: 'tabs' do %>
+	<ol>
+		<% @group.memberships.each do |member| %>
+			<li>
+				<%= User.find(member.user_id).first_name %>: <%= member.score %>
+			</li>
+		<% end %>
+	</ol>
+<% end %>

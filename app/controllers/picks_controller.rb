@@ -12,9 +12,9 @@ class PicksController < ApplicationController
 			@new_pick = @group.memberships.find_by(user: current_user).picks.create(contestant_id: contestant_id, week: params["pick"]["week"])
 		end
 		if @group.save  
-		  redirect_to group_path(@group)  
+		  redirect_to group_picks_path(@group)  
 		else 
-		  redirect_to group_path(@group) 
+		  redirect_to group_picks_path(@group) 
 		end
 	end
 

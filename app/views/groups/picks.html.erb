@@ -1,0 +1,29 @@
+<%= render layout: 'tabs' do %>
+	<% @group.show.show_weeks.each do |week| %>
+		<div class="row">
+			<div class="col-xs-12 col-md-12">
+				<h4>Week <%= week.week %></h4>
+			
+			<% if @group.memberships.find_by(user: current_user).picks.where(week: week).any? %>
+				<% @group.memberships.find_by(user: current_user).picks.where(week: week).each do |pick| %>
+					<% @contestant = Contestant.find(pick.contestant_id) %>
+					<div class="col-xs-3 col-md-3">
+						<% if Key.where(show: @group.show).where(week: week.id).any? %>
+							<% if Key.where(show: @group.show).where(week: week.id).where(contestant: @contestant).any? %>
+								<%= link_to image_tag(@contestant.image), @contestant, class: :"thumbnail contestant-image" %>
+							<% else %>
+								<%= link_to image_tag(@contestant.image), @contestant, class: :"thumbnail contestant-image eliminated" %>
+							<% end %>
+						<% else %>
+							<%= link_to image_tag(@contestant.image), @contestant, class: :"thumbnail contestant-image" %>
+						<% end %>
+					<div class="caption small contestant-name"><%= @contestant.name %></div>
+					</div>
+				<% end %>
+			<% else %>
+				<%= link_to "Make Picks", new_picks_path(week: week), class:"btn btn-default"  %>
+			<% end %>
+			</div>
+		</div>
+	<% end %>
+<% end %>

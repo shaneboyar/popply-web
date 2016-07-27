@@ -12,9 +12,9 @@ class PostsController < ApplicationController
 		post_params_with_creator = post_params.merge(custom_params)
 		@post = @group.posts.build(post_params_with_creator) 
 		if @post.save  
-			redirect_to group_path(@group) 
+			redirect_to group_posts_path(@group) 
 		else 
-			redirect_to group_path(@group) 
+			redirect_to group_posts_path(@group) 
 		end
 	end
 
