@@ -23,7 +23,7 @@
 						<% end %>
 					</ul>
 				<% end %>
-				<%= link_to "Comment", new_comment_path(id: @group, post_id: post), class: :"btn btn-default btn-block", role: :"button", remote: :true, id: :"new-comment-button" %>
+				<%= link_to "Comment", new_comment_path(id: @group, post_id: post), class: :"btn btn-default btn-block", role: :"button", remote: :true, id: :"new-comment-button-#{post.id}" %>
 				<div id="new-comment">
 					<!-- This is where the comment input will appear -->
 				</div>
