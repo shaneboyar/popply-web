@@ -24,7 +24,8 @@ class GroupsController < ApplicationController
 		group_params_with_owner = group_params.merge(custom_params)
 		@group = current_user.groups.create(group_params_with_owner)
 		if @group.save 
-			redirect_to user_path(current_user) 
+			flash[:success] = 'Group created.'
+			redirect_to group_path(@group) 
 		else 
 		 	redirect_to '/' 
 		end 

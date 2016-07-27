@@ -1,33 +1,24 @@
 <% if @posts.any? %>
 	<% @posts.each do |post| %>
-		<ol class="posts">
-			<li class="main">
-				<p>
-					<%= post.content %>
-				</p>
-				<small class="byline">
-					Written by <%= User.find(Membership.find(post.membership_id).user_id).first_name %> - <%= time_ago_in_words(post.created_at) %> ago. 
-						<% if current_user.id == Membership.find(post.membership_id).user_id %>
-							<%= link_to "(edit)", edit_post_path(post) %> | <%= link_to "(delete)", post, method: :delete, data: { confirm: "You sure?" } %>
-						<% elsif current_user.id == @group.owner_id%>
-							<%= link_to "(delete)", post, method: :delete, data: { confirm: "You sure?" } %>
-						<% end %>
-				</small>
-				<% if post.comments.any? %>
-					<ul class="list-group comments">
-						<% post.comments.each do |comment| %>
-						<% user = User.find(comment.user_id) %>
-						<li class="list-group-item">
-							<%= user.first_name %>: <%= comment.content %> - <small><%= time_ago_in_words(comment.created_at) %> ago.</small>
-						</li>
-						<% end %>
-					</ul>
-				<% end %>
-				<%= link_to "Comment", new_comment_path(id: @group, post_id: post), class: :"btn btn-default btn-block", role: :"button", remote: :true, id: :"new-comment-button" %>
-				<div id="new-comment">
-					<!-- This is where the comment input will appear -->
-				</div>
-			</li>
-		</ol>
+		<div class="panel panel-default post">
+			<div class="panel-heading"><strong><%= User.find(Membership.find(post.membership_id).user_id).first_name %> posted - <%= time_ago_in_words(post.created_at) %> ago.</strong></div>
+			<div class="panel-body">
+				<p class="lead"><%= h(post.content).gsub(/\n/, '<br/>').html_safe %></p>
+			</div>
+			<% if post.comments.any? %>
+				<ul class="list-group comments">
+					<% post.comments.each do |comment| %>
+					<% user = User.find(comment.user_id) %>
+					<li class="list-group-item">
+						<i class="fa fa-bullhorn" aria-hidden="true"></i> <%= comment.content %> <small>(<%= user.first_name %> - <%= time_ago_in_words(comment.created_at) %> ago.)</small>
+					</li>
+					<% end %>
+				</ul>
+			<% end %>
+		</div>
+		<%= link_to "Comment", new_comment_path(id: @group, post_id: post), class: :"btn btn-primary btn-block comment-button", role: :"button", remote: :true, id: :"new-comment-button-#{post.id}" %>
+		<div id="new-comment">
+			<!-- This is where the comment input will appear -->
+		</div>
 	<% end %>
 <% end %>
