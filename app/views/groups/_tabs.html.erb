@@ -17,7 +17,7 @@
 		  	<li role="presentation" class="<%= 'active' if params[:action] == 'posts' %>" id="posts"><%= link_to "Posts", group_posts_path(@group) %></li>
 		  <% end %>
 		</ul>
-		<div class="group-details col-12">
+		<div class="group-details col-md-12">
 			<%= yield %>
 		</div>
 	</div>
