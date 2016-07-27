@@ -1,4 +1,4 @@
 class Comment < ActiveRecord::Base
   belongs_to :post
-  has_one :membership, as: :poster
+  has_one :user, as: :poster
 end

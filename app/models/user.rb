@@ -30,6 +30,7 @@ class User < ActiveRecord::Base
 	has_many :owned_groups, foreign_key: "owner_id", class_name: "Group", dependent: :destroy
 	has_many :groups, through: :memberships
 	has_many :memberships
+  has_many :comments, dependent: :destroy
 	mount_uploader :image_link, AvatarUploader
 	before_save   :downcase_email
 	validates :first_name, presence: true
