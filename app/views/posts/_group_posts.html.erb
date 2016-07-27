@@ -3,14 +3,14 @@
 		<div class="panel panel-default post">
 			<div class="panel-heading"><strong><%= User.find(Membership.find(post.membership_id).user_id).first_name %> posted - <%= time_ago_in_words(post.created_at) %> ago.</strong></div>
 			<div class="panel-body">
-				<p class="lead"><%= post.content %></p>
+				<p class="lead"><%= h(post.content).gsub(/\n/, '<br/>').html_safe %></p>
 			</div>
 			<% if post.comments.any? %>
 				<ul class="list-group comments">
 					<% post.comments.each do |comment| %>
 					<% user = User.find(comment.user_id) %>
 					<li class="list-group-item">
-						<strong><%= user.first_name %>:</strong> <%= comment.content %> - <small><%= time_ago_in_words(comment.created_at) %> ago.</small>
+						<i class="fa fa-bullhorn" aria-hidden="true"></i> <%= comment.content %> <small>(<%= user.first_name %> - <%= time_ago_in_words(comment.created_at) %> ago.)</small>
 					</li>
 					<% end %>
 				</ul>
