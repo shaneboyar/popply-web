@@ -88,6 +88,13 @@ else
 		contestant.save
 	end
 
+	first_name = "Shane"
+	last_name = "Boyar"
+	email = "shane.boyar@gmail.com"
+	password = "password"
+	user = User.new(first_name: first_name, last_name: last_name, email: email, password: password, password_confirmation: password, admin: true)
+	user.save
+
 	show = Show.find(1)
 
 	(1..10).each do |n|
