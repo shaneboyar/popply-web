@@ -2,6 +2,10 @@
 <div class="form-group">
 	<%= f.text_area :title, placeholder: "Name that shit...", class: :"form-control" %>
 </div>
+<div class="form-group">
+	<%= f.select (:show_id), options_from_collection_for_select(Show.all, :id, :title), {}, 
+    { class: :"form-control" } %> 
+</div>
 
 	<%= f.submit "Create Group", class: :"btn btn-default" %>
 <% end %>
