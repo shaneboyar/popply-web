@@ -6,7 +6,7 @@
   </div>
   <div class="col-sm-6 col-md-8">
     <h1><%= @contestant.name %></h1>
-    <% if @contestant.age != "" %><p>Age: <%= @contestant.age %></p><% end %>
+    <% if @contestant.age != nil %><p>Age: <%= @contestant.age %></p><% end %>
     <% if @contestant.occupation != "" %><p>Occupation: <%= @contestant.occupation %></p><% end %>
     <p><%= @contestant.bio %></p>
   </div>
