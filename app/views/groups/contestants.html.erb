@@ -1,0 +1,12 @@
+<%= render layout: 'tabs' do %>
+	<% @contestants.each do |contestant| %>
+		<div class="col-xs-4 col-md-4">
+			<div class="thumbnail">
+				<%= link_to image_tag(contestant.image), contestant%>
+				<div class="caption text-center">
+					<h4><%= contestant.name %></h4>
+				</div>
+			</div>
+		</div>
+	<% end %>
+<% end %>

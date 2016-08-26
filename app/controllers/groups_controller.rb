@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-	before_action :load_group, only: [:show, :update, :picks, :rankings, :posts, :chat]
+	before_action :load_group, only: [:show, :update, :picks, :rankings, :posts, :contestants, :chat]
 
 	def load_group
   		@group = Group.find(params[:id])
@@ -54,6 +54,10 @@ class GroupsController < ApplicationController
 
 	def posts
 		@posts = Post.where(group: @group).order(created_at: :desc)
+	end
+
+	def contestants
+		@contestants = @group.show.contestants
 	end
 
 	def chat

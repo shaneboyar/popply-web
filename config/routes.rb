@@ -41,6 +41,7 @@ Rails.application.routes.draw do
   get 'groups/:id', to: 'groups#rankings', as: 'group_rankings'
   get 'groups/:id/picks', to: 'groups#picks', as: 'group_picks'
   get 'groups/:id/posts', to: 'groups#posts', as: 'group_posts'
+  get 'groups/:id/contestants', to: 'groups#contestants', as: 'group_contestants'
 
   get 'groups/:id/posts/new', to: 'posts#new', as: 'new_post'
   post 'groups/:id/posts/new', to: 'posts#create'

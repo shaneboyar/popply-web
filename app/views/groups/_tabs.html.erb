@@ -15,6 +15,7 @@
 		  	<li role="presentation" class="<%= 'active' if params[:action] == 'picks' %>" id="picks"><%= link_to "My Picks", group_picks_path(@group) %></li>
 		  	<li role="presentation" class="<%= 'active' if params[:action] == 'chat' %>" id="chat"><%= link_to "Chat", '#' %></li>
 		  	<li role="presentation" class="<%= 'active' if params[:action] == 'posts' %>" id="posts"><%= link_to "Posts", group_posts_path(@group) %></li>
+		  	<li role="presentation" class="<%= 'active' if params[:action] == 'posts' %>" id="contestants"><%= link_to "Contestants", group_contestants_path(@group) %></li>
 		  <% end %>
 		</ul>
 		<div class="group-details col-md-12">
