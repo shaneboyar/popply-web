@@ -15,4 +15,6 @@
 //= require jquery.turbolinks
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require faye
+//= require chats
 //= require_tree .

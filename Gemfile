@@ -18,6 +18,8 @@ gem 'turbolinks',   '2.3.0'
 gem 'jbuilder',     '2.2.3'
 gem 'sdoc',         '0.4.0', group: :doc
 gem 'annotate'
+gem 'faye-rails', '~> 2.0'
+gem 'thin'
 gem 'devise'
 
 group :development, :test do
