@@ -1,0 +1,6 @@
+<% if @chat.new_record? %>
+  alert('Your comment cannot be saved.');
+<% else %>
+  $('#chats').find('.media-list').prepend('<%= j render @chat %>');
+  $('#chat_body').val('');
+<% end %>

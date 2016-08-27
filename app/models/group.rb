@@ -15,5 +15,6 @@ class Group < ActiveRecord::Base
 	has_many :members, through: :memberships, source: :user
 	has_many :memberships, dependent: :destroy
 	has_many :posts, dependent: :destroy
+	has_many :chats, dependent: :destroy
 	has_one :show, foreign_key: "id", primary_key: "show_id"
 end

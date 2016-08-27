@@ -42,6 +42,9 @@ Rails.application.routes.draw do
   get 'groups/:id/picks', to: 'groups#picks', as: 'group_picks'
   get 'groups/:id/posts', to: 'groups#posts', as: 'group_posts'
   get 'groups/:id/contestants', to: 'groups#contestants', as: 'group_contestants'
+  get 'groups/:id/chat', to: 'groups#chat', as: 'group_chat'
+
+  post 'groups/:id/chat', to: 'chats#create'
 
   get 'groups/:id/posts/new', to: 'posts#new', as: 'new_post'
   post 'groups/:id/posts/new', to: 'posts#create'
@@ -54,7 +57,7 @@ Rails.application.routes.draw do
   post 'groups/:id/picks/week/:week', to: 'picks#create'
 
 
-  resources :users, :posts, :comments, :groups
+  resources :users, :posts, :comments, :groups, :chats
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

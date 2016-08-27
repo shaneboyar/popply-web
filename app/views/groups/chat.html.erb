@@ -1,0 +1,10 @@
+<%= render layout: 'tabs' do %>
+	<%= render 'chats/new' %>
+	<div class="panel panel-default" id="chats">
+		<div class="panel-body">
+			<ul class="media-list">
+				<%= render @chats %>
+			</ul>
+		</div>
+	</div>
+<% end %>

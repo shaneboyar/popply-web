@@ -61,9 +61,8 @@ class GroupsController < ApplicationController
 	end
 
 	def chat
-		respond_to do |format|               
-			format.js
-		end
+		@new_chat = @group.chats.build
+		@chats = Chat.where(group: @group).order(created_at: :desc)
 	end
 
 
