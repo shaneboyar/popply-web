@@ -1,0 +1,17 @@
+<h1>You got shit to read!</h1>
+
+<p>
+  Hey <%= @user.first_name %>,
+</p>
+
+<p>
+	Someone just posted a new recap in your group "<%= @group.title %>". 
+	Go check it out <%= link_to "here.", group_posts_path(@group) %>
+</p>
+
+<p>
+	Love, <br />
+	Popplybot
+</p>
+
+
