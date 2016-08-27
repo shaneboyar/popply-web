@@ -10,6 +10,5 @@ jQuery ->
 	 client.unsubscribe '/chats'
 	catch
 	 console?.log "Can't unsubscribe." # print a message only if console is defined
-	end
 	client.subscribe '/chats', (payload) ->
 		$('#chats').find('.media-list').prepend(payload.message) if payload.message
