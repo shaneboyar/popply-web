@@ -1,9 +1,11 @@
-<li class="media chat">
+<li class="media chat" id="chat-<%= chat.id %>">
   <%= link_to image_tag(chat.user.image_link, alt: chat.user.first_name, class: "media-object chat-avatar"),
               chat.user, target: '_blank', class: 'pull-left' %>
   <div class="media-body">
     <h4 class="media-heading"><%= link_to chat.user.first_name, chat.user, target: '_blank' %> says
-      <small class="text-muted">[at <%= chat.created_at.strftime('%-d %B %Y, %H:%M:%S') %>]</small></h4>
+      <small class="text-muted">[at <%= chat.created_at.strftime('%-d %B %Y, %H:%M:%S') %>]</small>
+      <a href="#"><i class="fa fa-twitter fa-2x pull-right twitter-icon" aria-hidden="true"></i></a>
+  	</h4>
     <p><%= chat.body %></p>
   </div>
 </li>

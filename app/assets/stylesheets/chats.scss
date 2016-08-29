@@ -4,10 +4,18 @@
 
 
 .chat-avatar {
-	max-width: 50px;
+	max-width: 60px;
 }
 
 #comments {
   max-height: 500px;
   overflow: auto;
+}
+
+.twitter-icon {
+	visibility: hidden;
+}
+
+.chat:hover .twitter-icon {
+	visibility: visible;
 }
