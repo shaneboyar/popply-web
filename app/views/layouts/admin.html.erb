@@ -1,59 +1,49 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>POPPLR</title>
-
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<%= favicon_link_tag 'admin-favicon.ico' %>
-
-<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300' rel='stylesheet' type='text/css'>
-
-<script src="https://use.fontawesome.com/adddc85b49.js"></script>
-
-  <%= stylesheet_link_tag 'admin', media: 'all', 'data-turbolinks-track' => true %>
-  
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>POPPLR</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <%= favicon_link_tag 'admin-favicon.ico' %>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300' rel='stylesheet' type='text/css'>
+    <script src="https://use.fontawesome.com/adddc85b49.js"></script>
+    <%= stylesheet_link_tag 'admin', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/admin">Popplr - An Admin System for Popply</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Help</a></li>
-            <li><%= link_to "Log Out", destroy_user_session_path, method: "delete" %></li>
-            <li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/admin">Popplr - An Admin System for Popply</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Help</a></li>
+        <li><%= link_to "Log Out", destroy_user_session_path, method: "delete" %></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-          <ul class="nav nav-sidebar">
-            <li class="<%= 'active' if params[:action] == 'home' %>"><a href="/admin">Overview <span class="sr-only">(current)</span></a></li>
-            <li class="<%= 'active' if params[:action] == 'shows' %>"><a href="/admin/shows">Shows</a></li>
-            <li class="<%= 'active' if params[:action] == 'groups' %>"><a href="/admin/groups">Groups</a></li>
-            <li><iframe width="210" height="157" src="https://www.youtube.com/embed/GOAS-g5EXUo" frameborder="0" allowfullscreen></iframe></iframe></li>
-          </ul>
-        </div>
-
-        <%= yield %>
-
-
-        </div>
-
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3 col-md-2 sidebar">
+      <ul class="nav nav-sidebar">
+        <li class="<%= 'active' if params[:action] == 'home' %>"><a href="/admin">Overview <span class="sr-only">(current)</span></a></li>
+        <li class="<%= 'active' if params[:action] == 'shows' %>"><a href="/admin/shows">Shows</a></li>
+        <li class="<%= 'active' if params[:action] == 'groups' %>"><a href="/admin/groups">Groups</a></li>
+        <li><iframe width="210" height="157" src="https://www.youtube.com/embed/GOAS-g5EXUo" frameborder="0" allowfullscreen></iframe></iframe></li>
+      </ul>
+    </div>
+    <%= yield %>
+  </div>
 </body>
 </html>
