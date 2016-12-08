@@ -6,11 +6,11 @@
 			<% last_week_picks = @group.memberships.find_by(user: @current_user).picks.where(week: last_week) %>
 			<% contestants = [] %>
 			<% last_week_picks.each do |pick| %>
-			<% contestant = Contestant.find(pick.contestant_id) %>
-			<% contestants.push(contestant) %>
+  			<% contestant = Contestant.find(pick.contestant_id) %>
+  			<% contestants.push(contestant) %>
 			<% end %>
 		<% else %>
-			<% contestants = Contestant.all %>
+			<% contestants = @show.contestants.all.order(:name) %>
 		<% end %>
 		<%= f.collection_check_boxes :contestant_id, contestants, :id, :name do |b| %>
 			<div class="col-md-2">

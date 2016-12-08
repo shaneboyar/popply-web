@@ -39,13 +39,13 @@ class GroupsController < ApplicationController
 
 	def destroy
 		@group = Group.find(params[:id])
-    	@group.destroy
-    	flash[:success] = "Group deleted"
-    	redirect_to request.referrer || root_url
-  	end
+  	@group.destroy
+  	flash[:success] = "Group deleted"
+  	redirect_to request.referrer || root_url
+	end
 
-  	def picks
-  		@picks = @group.memberships.find_by(user: current_user).picks
+	def picks
+  	@picks = @group.memberships.find_by(user: current_user).picks
 	end
 
 	def rankings
