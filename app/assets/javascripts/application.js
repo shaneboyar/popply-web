@@ -16,5 +16,6 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require faye
+//= require ckeditor/init
 //= require chats
 //= require_tree .
