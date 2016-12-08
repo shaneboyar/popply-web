@@ -2,7 +2,7 @@
 	<% post.comments.each do |comment| %>
 	<% user = User.find(comment.user_id) %>
 	<li class="list-group-item">
-		<i class="fa fa-bullhorn" aria-hidden="true"></i> <%= comment.content %><br /><small><p class="text-right">(<%= user.first_name %> - <%= time_ago_in_words(comment.created_at) %> ago.)</p></small>
+		<i class="fa fa-bullhorn" aria-hidden="true"></i> <%= comment.content.html_safe %><br /><small><p class="text-right">(<%= user.first_name %> - <%= time_ago_in_words(comment.created_at) %> ago.)</p></small>
 	</li>
 	<% end %>
 </ul>
