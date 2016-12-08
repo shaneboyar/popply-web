@@ -12,7 +12,8 @@
 			      })
 			    </script>
 			<% else %>
-				<p><%= h(post.content).gsub(/\n/, '<br/>').html_safe %></p>
+				
+				<p><%= post.content.html_safe %></p>
 			<% end %>
 		</div>
 		<% if post.comments.any? %>
