@@ -400,6 +400,7 @@ DEPENDENCIES
   mini_backtrace
   mini_magick
   minitest-reporters
+  nokogiri
   pg (= 0.17.1)
   rails (= 4.2.6)
   rails_12factor (= 0.0.2)
@@ -414,4 +415,4 @@ DEPENDENCIES
   will_paginate (= 3.0.7)
 
 BUNDLED WITH
-   1.12.5
+   1.13.6
