@@ -17,6 +17,9 @@
 
 .player-image {
 	margin-bottom: 0 !important;
+	img {
+		max-height: 25px;
+	}
 }
 
 .player-name {
