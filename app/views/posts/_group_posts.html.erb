@@ -2,19 +2,7 @@
 	<div class="panel panel-default post">
 		<div class="panel-heading"><h3><%= post.title %></h3><small><%= User.find(post.user_id).first_name %> posted - <%= time_ago_in_words(post.created_at) %> ago.</small></div>
 		<div class="panel-body">
-			<% if post.content.length > 1000 %>
-				<% content = h(post.content).gsub(/\n/, '<br/>').html_safe %>
-				<%= h(post.content[0..1000]).gsub(/\n/, '<br/>').html_safe %>...<%= link_to "Read More", '', class: "read-more-#{post.id}" %>
-				<script>
-			      $('.read-more-<%= post.id %>').on('click', function(e) {
-			        e.preventDefault()
-			        $(this).parent().html('<%= escape_javascript content %>')
-			      })
-			    </script>
-			<% else %>
-				
-				<p><%= post.content.html_safe %></p>
-			<% end %>
+			<p><%= post.content.html_safe %></p>
 		</div>
 		<% if post.comments.any? %>
 			<%= render 'comments/post_comments', post: post %>
