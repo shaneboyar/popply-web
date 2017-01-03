@@ -62,7 +62,7 @@ class GroupsController < ApplicationController
 
 	def chat
 		@new_chat = @group.chats.build
-		@chats = Chat.where(group: @group).order(created_at: :desc)
+		@chats = Chat.where(group: @group).order(created_at: :desc).limit(50)
 	end
 
 

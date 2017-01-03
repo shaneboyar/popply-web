@@ -2,3 +2,10 @@ publisher = client.publish('/chats', {
   message: '<%= j render @chat %>'
 });
 $('#chat_body').val('');
+
+$('#post-button').on('click', function(e) {
+  if ($('.chat').length > 50) {
+    $('.chat').last().remove();
+  }
+});
+
