@@ -24,5 +24,13 @@ class Membership < ActiveRecord::Base
     end
     picks.count == total_picks
   end
-  
+
+  def top_four
+    top_four_week = group.show.show_weeks.find_by(picklimit: 4)
+    top_four_picks = []
+    picks.where(week: top_four_week).each do |pick|
+      top_four_picks.push(pick)
+    end
+  end
+
 end

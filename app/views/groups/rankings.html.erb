@@ -2,7 +2,7 @@
 	<ol>
 		<% @group.memberships.each do |member| %>
 			<li>
-				<%= User.find(member.user_id).first_name %>: <%= member.score %> <%= "- Picks are in!" if member.made_all_picks? %>
+				<%= User.find(member.user_id).first_name %>: <%= member.score %> <% if member.made_all_picks? %>- Picks are in! Top 4: <%= member.top_four.map { |pick| pick.contestant.name } %><% end %>
 			</li>
 		<% end %>
 	</ol>
