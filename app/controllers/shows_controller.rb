@@ -19,7 +19,7 @@ class ShowsController < ApplicationController
 		@new_key = @show.keys.build
 	end
 
-	def keycreate
+	def keycreate #VERY BADLY NEEDS REFACTORING
 		@show = Show.find(params[:id])
 		@new_key = @show.keys.build
 		week = 
