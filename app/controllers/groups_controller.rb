@@ -13,7 +13,7 @@ class GroupsController < ApplicationController
 	def new
 		@group = current_user.groups.build
 		@shows = Show.all
-		respond_to do |format|               
+		respond_to do |format|
 			format.js
 		end
 	end
@@ -24,12 +24,12 @@ class GroupsController < ApplicationController
 		custom_params = { owner_id: current_user.id }
 		group_params_with_owner = group_params.merge(custom_params)
 		@group = current_user.groups.create(group_params_with_owner)
-		if @group.save 
+		if @group.save
 			flash[:success] = 'Group created.'
-			redirect_to group_path(@group) 
-		else 
-		 	redirect_to '/' 
-		end 
+			redirect_to group_path(@group)
+		else
+		 	redirect_to '/'
+		end
 	end
 
 	def update
@@ -50,6 +50,7 @@ class GroupsController < ApplicationController
 
 	def rankings
 		@key = @group.show.keys
+		@members = @group.memberships
 	end
 
 	def posts
