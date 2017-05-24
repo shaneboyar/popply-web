@@ -49,15 +49,23 @@ class ShowsController < ApplicationController
 			matches = winners & player_winners
 
 			#TODO - LET ADMIN CONFIGURE SCORING STRUCTURE
-			if params["key"]["week"].to_i < 7
-				player.score = player.score + matches.count
-			elsif params["key"]["week"].to_i == 7
+			if params["key"]["week"].to_i == 1
+				player.score = player.score + (matches.count * 2)
+			elsif params["key"]["week"].to_i == 2
+				player.score = player.score + (matches.count * 3)
+			elsif params["key"]["week"].to_i == 3
+				player.score = player.score + (matches.count * 4)
+			elsif params["key"]["week"].to_i == 4
+				player.score = player.score + (matches.count * 5)
+			elsif params["key"]["week"].to_i == 5
+				player.score = player.score + (matches.count * 6)
+			elsif params["key"]["week"].to_i == 6
 				player.score = player.score + (matches.count * 10)
-			elsif params["key"]["week"].to_i == 8
+			elsif params["key"]["week"].to_i == 7
 				player.score = player.score + (matches.count * 15)
-			elsif params["key"]["week"].to_i == 9
+			elsif params["key"]["week"].to_i == 8
 				player.score = player.score + (matches.count * 20)
-			elsif params["key"]["week"].to_i == 10
+			elsif params["key"]["week"].to_i >= 9
 				player.score += (matches.count * 30)
 			end		
 
